@@ -6,6 +6,7 @@ import 'primereact/resources/themes/md-light-indigo/theme.css'; // O el tema que
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <RouterProvider router={router} />
 )

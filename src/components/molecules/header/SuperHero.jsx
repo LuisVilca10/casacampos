@@ -2,7 +2,7 @@ function SuperHero() {
 
     return (
         <>
-            <div className="fixed left-1/2 transform -translate-x-1/2 lg:flex md:flex md:justify-between bg-red-700 text-white items-center lg:justify-between text-[0.625rem] md:text-xs px-4 py-1 sm:flex-none rounded-b-2xl transition-all duration-500">
+            <div className="w-1/4 mx-auto lg:flex md:flex md:justify-between bg-red-700 text-white items-center lg:justify-center text-[0.625rem] md:text-xs px-4 py-1 sm:flex-none rounded-b-2xl transition-all duration-500">
                 <ul className="flex space-x-4 justify-center flex-wrap">
                     <li className="flex items-center">
                         <i className="fa-solid fa-location-dot mr-1"></i>Arequipa - Yanahuara
