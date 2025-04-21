@@ -18,12 +18,12 @@ function HeroSlider() {
                 }}
             >
                 {/* Contenido principal */}
-                <div className="flex flex-col h-full w- text-white text-start container mx-auto mt-28 mb-20">
-                    <h1 className="text-5xl font-bold mb-2 w-1/2">Casa de Campo en Arequipa</h1>
-                    <p className="text-xl mb-2 text-end w-1/2">Busca las fechas de disponibilidad y reserva!</p>
+                <div className="flex flex-col h-full w- text-white text-start container mx-auto md:mt-28 md:mb-20">
+                    <h1 className="text-5xl md:text-6xl font-bold mb-2 md:w-1/2 w-full">Casa Campo Arequipa</h1>
+                    <p className="text-lg md:text-2xl mb-2 md:text-end md:w-1/2">Busca las fechas de disponibilidad y reserva!</p>
 
                     {/* Buscador */}
-                    <div className="shadow-lg p-4 flex flex-row items-center justify-center gap-4 w-full max-w-5xl">
+                    <div className="shadow-lg md:p-4 pt-5 md:flex flex-row items-center justify-center gap-4 w-full max-w-5xl grid">
                         {/* Fechas */}
                         <div className='w-full'>
                             <Calendar

@@ -74,17 +74,17 @@ function ServicesSection() {
 
                 <div className="w-full h-auto grid lg:grid-cols-4 sm:grid-cols-2 lg:gap-7 sm:gap-10 gap-7 px-8 sm:px-10 mt-4">
                     {serviceTexts.slice(0, 4).map((service, index) => (
-                        <div className="relative group w-full flex flex-col items-center justify-center gap-3 p-5 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-red-700 overflow-hidden">
-                            <img className="w-20 h-20 relative z-10 object-cover" alt="" src={service.img} />
+                        <div className="group w-full flex flex-col items-center justify-center gap-3 p-5 cursor-pointer transition duration-500 hover:shadow-xl rounded-xl border hover:border-red-700 overflow-hidden ">
+                            <img className="w-20 h-20 object-cover" alt="" src={service.img} />
                             <div className="w-full flex flex-col items-center gap-2">
                                 <h4 className="text-base rounded font-semibold">
                                     {service.title}
                                 </h4>
-                                <p className="text-sm font-light text-center">
+                                <p className="text-sm font-light text-center mx-5">
                                     {service.description}
                                 </p>
 
-                                <div className="absolute top-2 px-1 py-1 bg-red-800 rounded-full group-hover:px-16 duration-500"></div>
+                                <div className="top-64 px-1 py-1 bg-red-800 rounded-full group-hover:px-16 duration-500"></div>
                             </div>
                         </div>
                     ))}

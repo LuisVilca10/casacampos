@@ -8,13 +8,15 @@ function CallToActionSection() {
                 backgroundImage:
                     "linear-gradient(rgba(153, 27, 27, 0.5), rgba(153, 27, 27, 1)), url('../../src/assets/casa-campo.jpg')"
             }}>
-                <div className="max-w-[1180px] w-full mx-auto">
+                <div className="container w-full mx-auto md:px-14">
                     <div className="py-12 px-4">
-                        <div className="flex md:flex-row flex-col justify-between items-center text-white md:gap-36 gap-4">
-                            <div className="flex gap-4 items-center text-5xl md:text-left text-center">
-                                <SearchCheck size={100} strokeWidth={2.5} />
+                        <div className="flex md:flex-row flex-col justify-between items-center text-white md:gap-x-96 gap-4">
+                            <div className="flex md:flex-row flex-col gap-4 items-center text-5xl md:text-left text-center justify-center">
+                                <div className="w-12 h-12 sm:w-24 sm:h-24">
+                                    <SearchCheck className="w-full h-full" strokeWidth={2.5} />
+                                </div>
                                 <div className="border py-6 md:block hidden"></div>
-                                <div className="text-2xl font-bold">
+                                <div className="text-lg md:text-2xl font-bold">
                                     Para Eventos especiales, Corporativos y consultas comunicate con nosotros o al Whatsapp.
                                 </div>
                             </div>
