@@ -1,7 +1,6 @@
 import { useRef } from "react";
 import logo from '../../../assets/logo.png';
-import { Button } from "primereact/button";
-import { Menu } from "primereact/menu";
+
 import { LogIn, User, UserPlus } from 'lucide-react';
 import { Link } from "react-router-dom";
 import SuperHero from "./SuperHero";
@@ -68,10 +67,10 @@ function NavBar() {
                 </div>
 
                 <div className="p-d-flex p-ai-center p-jc-center p-mt-5">
-                    <Menu model={items} popup ref={menuRight} />
-                    <Button className="border p-2 rounded-full border-black" icon={<User />} onClick={(event) => menuRight.current.toggle(event)} />
+                    {/* <Menu model={items} popup ref={menuRight} /> */}
+                    <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Default</button>
                 </div>
-                
+
             </div>
 
 

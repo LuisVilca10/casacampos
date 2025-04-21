@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Dialog } from 'primereact/dialog';
-import { Button } from 'primereact/button';
+
 
 function ServicesSection() {
     const [showServiceModal, setShowServiceModal] = useState(false);
@@ -103,7 +102,7 @@ function ServicesSection() {
 
             </main>
 
-            <Dialog
+            {/* <Dialog
                 header="Servicios adicionales"
                 visible={showServiceModal}
                 onHide={handleServiceModalClose}
@@ -136,7 +135,7 @@ function ServicesSection() {
                         onClick={handleServiceModalClose}
                     />
                 </div>
-            </Dialog>
+            </Dialog> */}
 
         </>
     );

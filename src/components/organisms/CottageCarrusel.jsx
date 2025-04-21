@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import { Galleria } from 'primereact/galleria';
 
 const CottageCarrusel = () => {
   const [index, setIndex] = useState(0);
@@ -66,7 +65,11 @@ const CottageCarrusel = () => {
       style={{ display: 'block' }}
     />
   );
-
+  const responsiveOptions = [
+    { breakpoint: '1024px', numVisible: 0 },
+    { breakpoint: '768px', numVisible: 0 },
+    { breakpoint: '560px', numVisible: 1 }
+  ];
   return (
     <div className="flex flex-col md:flex-row gap-6 p-4 rounded-lg shadow-lg items-start">
       {/* Galería */}
@@ -74,20 +77,21 @@ const CottageCarrusel = () => {
         className="w-full md:w-1/2 flex border border-rose-900"
         style={{ height: galeriaHeight || 'auto' }}
       >
-        <div className="w-full card" style={{height: galeriaHeight || 'auto'  }}>
+        {/* <div className="w-full card" style={{ height: galeriaHeight || 'auto' }}>
           <Galleria
             value={producto.imagenes}
             activeIndex={activeIndex}
+            responsiveOptions={responsiveOptions}
             onItemChange={(e) => setActiveIndex(e.index)}
             numVisible={5}
             item={itemTemplate}
             thumbnail={thumbnailTemplate}
             circular
             autoPlay
+            style={{ maxWidth: '500px' }}
             transitionInterval={3000}
-            style={{  }}
           />
-        </div>
+        </div> */}
       </div>
 
       {/* Contenido */}
