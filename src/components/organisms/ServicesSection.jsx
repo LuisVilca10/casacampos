@@ -92,12 +92,12 @@ function ServicesSection() {
                 </div>
 
                 {/* Botón para ver más servicios */}
-                <button
+                {/* <button
                     onClick={handleServiceModalOpen}
                     className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
                 >
                     Ver más servicios
-                </button>
+                </button> */}
 
 
             </main>

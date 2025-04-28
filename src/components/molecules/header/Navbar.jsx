@@ -18,7 +18,7 @@ function NavBar() {
                 </div>
 
 
-                <div className="hidden sm:flex justify-center text-sm -ml-44 mt-4">
+                <div className="hidden sm:flex justify-center text-sm -ml-44 mt-4 text-black">
                     <ul className="flex divide-x  md:opacity-100 duration-300">
                         <li
                             className="cursor-pointer px-2 rounded hover:bg-gray-200"
@@ -48,7 +48,7 @@ function NavBar() {
                 </div>
 
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="border p-1 rounded-2xl border-gray-600"><User size={'28'} /></div>
+                    <div tabIndex={0} role="button" className="border p-1 rounded-2xl border-gray-600"><User size={'28'} color='#000000' /></div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                         <li><a><User />Iniciar Sesión</a></li>
                         <li className="border-r-2 border-gray-300 pr-4"></li>

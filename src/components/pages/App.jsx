@@ -26,17 +26,18 @@ function App() {
       {/* hero */}
       <HeroSlider />
       {/* Fin hero */}
+      
+      {/* servicios */}
+      <section className="container mx-auto w-full h-auto flex flex-col items-center justify-center py-10">
+        <ServicesSection />
+      </section>
+      {/* fin servicios */}
 
-      <div className='container mx-auto mt-8'>
+      <div className='container mx-auto mt-8 pb-20'>
         <h1 className='md:text-4xl text-2xl font-bold capitalize flex justify-center mb-6'>Las cabañas que te ofrecemos</h1>
         <CottageCarrusel />
       </div>
 
-      {/* servicios */}
-      <section className="container mx-auto w-full h-auto flex flex-col items-center justify-center  py-12">
-        <ServicesSection />
-      </section>
-      {/* fin servicios */}
       {/* contac us */}
       <CallToActionSection />
       {/* fin contact us */}
