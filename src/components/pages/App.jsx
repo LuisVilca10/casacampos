@@ -33,8 +33,8 @@ function App() {
       </section>
       {/* fin servicios */}
 
-      <div className='container mx-auto mt-8 pb-20'>
-        <h1 className='md:text-4xl text-2xl font-bold capitalize flex justify-center mb-6'>Las cabañas que te ofrecemos</h1>
+      <div className='container mx-auto mt-2 pb-20'>
+        <h1 className='md:text-4xl text-2xl font-bold capitalize flex justify-center mb-8'>Las cabañas que te ofrecemos</h1>
         <CottageCarrusel />
       </div>
 

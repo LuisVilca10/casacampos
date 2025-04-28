@@ -2,9 +2,7 @@ import { useState } from "react";
 
 
 function ServicesSection() {
-    const [showServiceModal, setShowServiceModal] = useState(false);
-    const handleServiceModalOpen = () => setShowServiceModal(true);
-    const handleServiceModalClose = () => setShowServiceModal(false);
+
     const serviceTexts = [
         {
             img: "../../../src/assets/icons/vista_montana.png",
