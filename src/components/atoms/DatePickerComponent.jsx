@@ -1,0 +1,38 @@
+import { Calendar } from 'lucide-react';
+import DatePicker from 'react-datepicker';
+import { registerLocale } from 'react-datepicker';
+import es from 'date-fns/locale/es';
+import 'react-datepicker/dist/react-datepicker.css';
+
+registerLocale('es', es);
+
+const DatePickerComponent = ({ range, setRange }) => {
+    const [startDate, endDate] = range;
+
+    return (
+        <div className="w-full relative">
+            <DatePicker
+                selected={startDate}
+                onChange={(update) => setRange(update)}
+                startDate={startDate}
+                endDate={endDate}
+                selectsRange
+                minDate={new Date()}
+                popperPlacement="bottom"
+                dropdownMode="select"
+                showMonthDropdown
+                showYearDropdown
+                locale="es"
+                calendarIconClassName="border"
+                dateFormat="dd 'de' MMMM"
+                placeholderText="Check-in ---- Check-out"
+                className="lg:w-[27rem] w-[20rem] bg-white flex py-3.5 px-4 text-black rounded-md border border-gray-300 shadow-sm focus:outline-none transition"
+            />
+            <span className="absolute right-2 top-1/2 transform -translate-y-1/2 text-red-700">
+                <Calendar />
+            </span>
+        </div>
+    );
+};
+
+export default DatePickerComponent;

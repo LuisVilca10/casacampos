@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import CottageRating from '../atoms/CottageRating';
-import { CircleParking, UsersRound, Volleyball, WavesLadder, Wifi } from 'lucide-react';
+import CottageCard from './CottageCard';
 
 const CottageCarrusel = () => {
   const productos = [
@@ -43,91 +41,8 @@ const CottageCarrusel = () => {
   return (
     <div className="flex flex-col gap-8">
       {productos.map((producto, index) => (
-        <CabañaCard key={producto.id} producto={producto} index={index} />
+        <CottageCard key={producto.id} producto={producto} index={index} />
       ))}
-    </div>
-  );
-};
-
-const CabañaCard = ({ producto, index }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const Galeria = (
-    <div className="w-full md:w-1/2">
-      <div className="carousel w-full h-96 overflow-x-auto snap-x snap-mandatory scroll-smooth">
-        <div className="carousel-item snap-center w-full flex-shrink-0 relative">
-          <img
-            src={producto.imagenes[currentSlide].itemImageSrc}
-            alt={producto.imagenes[currentSlide].alt}
-            className="w-full object-cover rounded-2xl"
-          />
-          <div className="absolute inset-0 flex items-center justify-between px-4">
-            <button
-              className="btn btn-circle"
-              onClick={() =>
-                setCurrentSlide((prev) => (prev - 1 + producto.imagenes.length) % producto.imagenes.length)
-              }
-            >
-              ❮
-            </button>
-            <button
-              className="btn btn-circle"
-              onClick={() =>
-                setCurrentSlide((prev) => (prev + 1) % producto.imagenes.length)
-              }
-            >
-              ❯
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-
-  const Contenido = (
-    <div className="w-full md:w-1/2 flex flex-col justify-center pr-3 pl-2">
-      <CottageRating details={producto.details} />
-      <h2 className="text-2xl font-bold mt-1">{producto.nombre}</h2>
-      <p className="text-gray-600 mt-2">{producto.descripcion}</p>
-      <h3 className='font-bold text-sm mt-2'>Servicios</h3>
-      <div className="flex flex-wrap justify-start mt-3 gap-y-4">
-        <div className="w-1/3 flex gap-x-2 text-sm">
-          <Wifi size={"20px"} /> WiFi gratis
-        </div>
-        <div className="w-1/3 flex gap-x-2 text-sm">
-          <CircleParking size={"20px"} /> Parking gratis
-        </div>
-        <div className="w-1/3 flex gap-x-2 text-sm">
-          <UsersRound size={"20px"} /> Habitaciones familiares
-        </div>
-        <div className="w-1/3 flex gap-x-2 text-sm">
-          <WavesLadder size={"20px"} /> Piscina Temperada
-        </div>
-        <div className="w-1/3 flex gap-x-2 text-sm">
-          <Volleyball size={"20px"} /> Juegos con Pelota
-        </div>
-      </div>
-      <div className="flex justify-start mt-5">
-        <button className="btn text-red-700 border-red-400 hover:text-white hover:bg-red-700 w-auto">
-          Reservar
-        </button>
-      </div>
-    </div>
-  );
-
-  return (
-    <div className="flex flex-col md:flex-row gap-6 p-4 rounded-lg shadow-lg items-start border">
-      {index % 2 === 0 ? (
-        <>
-          {Galeria}
-          {Contenido}
-        </>
-      ) : (
-        <>
-          {Contenido}
-          {Galeria}
-        </>
-      )}
     </div>
   );
 };
