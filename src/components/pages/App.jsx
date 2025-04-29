@@ -26,11 +26,19 @@ function App() {
       {/* hero */}
       <HeroSlider />
       {/* Fin hero */}
-      
+
       {/* servicios */}
-      <section className="container mx-auto w-full h-auto flex flex-col items-center justify-center py-10">
+
+      <section className='py-4 mt-3 '>
+        <main className="w-full flex flex-col gap-3 items-center justify-center mb-7">
+          <h2 className="md:text-4xl text-2xl font-bold capitalize">
+            Nuestros Servicios
+          </h2>
+        </main>
         <ServicesSection />
       </section>
+
+
       {/* fin servicios */}
 
       <div className='container mx-auto mt-2 pb-20'>

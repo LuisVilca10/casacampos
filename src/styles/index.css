@@ -2,59 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(calc(-900px * 5 - 0.5rem * 10));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 24s linear infinite;
+}
+
+.carousel-wrapper:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
 /* Personalizar el calendario */
 .react-datepicker {
-    font-family: 'Arial', sans-serif; /* Fuente */
-    border-radius: 8px; /* Bordes redondeados */
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1); /* Sombra */
-    background-color: #fff; /* Fondo blanco */
-    padding: 10px;
-  }
-  
-  /* Personalizar la cabecera del calendario */
-  .react-datepicker__header {
-    background-color: #4CAF50; /* Color de fondo de la cabecera */
-    color: white; /* Color de texto */
-    border-radius: 6px;
-    padding: 10px 0;
-    font-size: 1.2rem;
-  }
-  
-  /* Personalizar los días del mes */
-  .react-datepicker__month {
-    border-radius: 20px;
-    background-color: #f9f9f9;
-    padding: 10px;
-  }
-  
-  /* Personalizar los días del mes */
-  .react-datepicker__day {
-    font-size: 1rem;
-    border-radius: 50%;
-    padding: 5px;
-    margin: 2px;
-    transition: background-color 0.3s;
-  }
-  
-  .react-datepicker__day:hover {
-    background-color: #4CAF50; /* Fondo cuando el día es hover */
-    color: white; /* Color de texto */
-  }
-  
-  /* Resaltar el día seleccionado */
-  .react-datepicker__day--selected {
-    background-color: #4CAF50; /* Fondo del día seleccionado */
-    color: white; /* Color de texto */
-  }
-  
-  /* Personalizar la flecha para navegar entre meses */
-  .react-datepicker__navigation {
-    background-color: #4CAF50; /* Fondo de las flechas */
-    border-radius: 50%;
-    padding: 5px;
-  }
-  
-  .react-datepicker__navigation:hover {
-    background-color: #45a049; /* Color cuando se pasa el mouse por encima */
-  }
-  
+  font-family: 'Arial', sans-serif;
+  /* Fuente */
+  border-radius: 8px;
+  /* Bordes redondeados */
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+  /* Sombra */
+  background-color: #fff;
+  /* Fondo blanco */
+  padding: 10px;
+}
+
+/* Personalizar la cabecera del calendario */
+.react-datepicker__header {
+  background-color: #4CAF50;
+  /* Color de fondo de la cabecera */
+  color: white;
+  /* Color de texto */
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
+
+/* Personalizar los días del mes */
+.react-datepicker__month {
+  border-radius: 20px;
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+
+/* Personalizar los días del mes */
+.react-datepicker__day {
+  font-size: 1rem;
+  border-radius: 50%;
+  padding: 5px;
+  margin: 2px;
+  transition: background-color 0.3s;
+}
+
+.react-datepicker__day:hover {
+  background-color: #4CAF50;
+  /* Fondo cuando el día es hover */
+  color: white;
+  /* Color de texto */
+}
+
+/* Resaltar el día seleccionado */
+.react-datepicker__day--selected {
+  background-color: #4CAF50;
+  /* Fondo del día seleccionado */
+  color: white;
+  /* Color de texto */
+}
+
+/* Personalizar la flecha para navegar entre meses */
+.react-datepicker__navigation {
+  background-color: #4CAF50;
+  /* Fondo de las flechas */
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.react-datepicker__navigation:hover {
+  background-color: #45a049;
+  /* Color cuando se pasa el mouse por encima */
+}

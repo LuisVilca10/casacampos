@@ -23,12 +23,16 @@ const CottageCarrusel = () => {
     {
       id: 2,
       nombre: "Cabaña Numero 2",
-      descripcion: "Descubre el lugar perfecto para relajarte y reconectar con la naturaleza…",
+      descripcion: "La cabaña Coaba esta ubicado en el corazón de Arequipa, nuestra casa de campo ofrece mucho más que comodidad: es un espacio donde se siente la tranquilidad, la calma y la alegría de estar vivo. Con piscina privada, cuatrimotor para aventuras inolvidables y todos los servicios necesarios para una estadía perfecta, aquí cada momento invita a reconectar contigo mismo y con quienes amas. Más que un destino, es una experiencia de paz y bienestar que se guarda en el alma.",
       precio: 199.99,
       imagenes: [
         {
-          itemImageSrc: 'https://images.unsplash.com/photo-1585386959984-a415522c2807',
-          alt: 'Imagen de la Cabaña 2'
+          itemImageSrc: 'https://imgs.search.brave.com/cBSTbXbANZy9b0iI-qZJ2I0Ja35UsccrpZUz1qBgTYM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZi5i/c3RhdGljLmNvbS94/ZGF0YS9pbWFnZXMv/aG90ZWwvbWF4NTAw/LzUyMTA4NTE4NS5q/cGc_az02MGQ4NTZl/OWViNGNiYWVkYjZj/NjlkNjNiMmM3ODk4/ZjM0YjA1ZmYyYTlm/MTczNGIzMjQwMWYx/NzIwODcyYmIzJm89',
+          alt: 'Imagen de la Cabaña 2,1'
+        },
+        {
+          itemImageSrc: 'https://imgs.search.brave.com/ztxeoWnRZZjO6PHI5WSzFug8xN_ldiFVYeO2GKGy4lA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/cHJvcGVyYXRpLmNv/bS9leUppZFdOclpY/UWlPaUp3Y21RdGJH/bG1kV3hzWTI5dWJt/VmpkQzFpWVdOclpX/NWtMV0l5WWkxcGJX/Rm5aWE1pTENKclpY/a2lPaUpwYm1kbGMz/UmxjaTh3TVRrMU9E/ZGpPQzFtTnpWaExU/YzBPR0l0T0RWaE1p/MDFaRFkzTVRsbU5U/ZGhaVFV2TW1SaVpE/TXlNMlUzWXpWa1ky/RXdOakZoWWpNME5t/UXlNMlkxTWpGbFpq/Y3pPVEJqWkRsaE5U/WTVOMlkyTkdNMllt/UTVOamRtT1dJelpX/UXlaRGd6WVM1cWNH/Vm5JaXdpWW5KaGJt/UWlPaUp3Y205d1pY/SmhkR2tpTENKbFpH/bDBjeUk2ZXlKeWIz/UmhkR1VpT201MWJH/d3NJbkpsYzJsNlpT/STZleUozYVdSMGFD/STZNekl3TENKb1pX/bG5hSFFpT2pJME1D/d2labWwwSWpvaVky/OTJaWElpZlgxOQ',
+          alt: 'Imagen de la Cabaña 2,2'
         }
       ]
     }
