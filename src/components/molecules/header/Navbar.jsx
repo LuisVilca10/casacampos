@@ -1,6 +1,6 @@
 import { LogIn, User } from 'lucide-react';
 import logo from '../../../assets/logo.png';
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function NavBar() {
     return (
@@ -23,26 +23,36 @@ function NavBar() {
                         <li
                             className="cursor-pointer px-2 rounded hover:bg-gray-200"
                         >
-                            <a href="/">Inicio</a>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? 'text-red-700 font-bold' : 'text-sm'
+                            } to={"/"} >
+                                Inicio
+                            </NavLink>
                         </li>
                         <li
                             className={`cursor-pointer px-2 rounded hover:bg-gray-200`}
                         >
-                            <Link onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? 'text-red-700 font-bold' : 'text-sm'
+                            } to={"/nosotos"}>
                                 Nosotros
-                            </Link>
+                            </NavLink>
                         </li>
                         <li
                             className={`cursor-pointer px-2 rounded hover:bg-gray-200}`}
                         >
-                            <Link onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? 'text-red-700 font-bold' : 'text-sm'
+                            } to={"/contactanos"}>
                                 Contactanos
-                            </Link>
+                            </NavLink>
                         </li>
                         <li
                             className={`cursor-pointer px-2 rounded hover:bg-gray-200`}
                         >
-                            <Link to="/galeria">Galeria</Link>
+                            <NavLink className={({ isActive }) =>
+                                isActive ? 'text-red-700 font-bold' : 'text-sm'
+                            } to="/galeria">Galeria</NavLink>
                         </li>
                     </ul>
                 </div>
