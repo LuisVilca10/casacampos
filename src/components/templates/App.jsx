@@ -1,10 +1,9 @@
 import { Outlet } from "react-router-dom"
 import NavBar from "../molecules/header/Navbar"
 import SuperHero from "../molecules/header/SuperHero"
+import Footer from "../molecules/footer/Footer";
 
 function App() {
-
-
   return (
     <>
       <div>
@@ -21,10 +20,12 @@ function App() {
         <div className="contar mx-auto pt-20 md:pt-16 lg:pt-20">
           <Outlet />
         </div>
-
+        {/* footer */}
+        <Footer />
+        {/* fin footer */}
       </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,5 +1,3 @@
-
-import Footer from "../molecules/footer/Footer";
 import CallToActionSection from "../organisms/CallToActionSection";
 import CottageCarrusel from "../organisms/CottageCarrusel";
 import HeroSlider from "../organisms/HeroSlider";
@@ -36,9 +34,7 @@ function Home() {
             {/* about us */}
             <SobreNosotros />
             {/* fin about us */}
-            {/* footer */}
-            <Footer />
-            {/* fin footer */}
+
         </>
     );
 }
