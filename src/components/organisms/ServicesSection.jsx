@@ -60,7 +60,7 @@ function ServicesSection() {
     ];
     return (
 
-        <div className="container ">
+        <div className="container">
             <div className="carousel-wrapper overflow-hidden w-full">
                 <div className='flex whitespace-nowrap animate-scroll'>
                     {[...serviceTexts, ...serviceTexts, ...serviceTexts].map((blog, index) => (

@@ -1,41 +1,67 @@
-import Carousel from "daisyui/components/carousel";
-import { Laugh } from "lucide-react";
+import { Flag, Goal, MountainSnow, RockingChair, Trees, Users } from "lucide-react";
+import Carousel from "../molecules/carousel/Carousel";
+import ServicesSection from "../organisms/ServicesSection";
+import CottageRating from "../atoms/CottageRating";
+
+
 
 function AboutUs() {
-    const productos = [
+    const imagenesCarrusel = [
         {
-            id: 1,
-            nombre: "Cabaña Coaba",
-            descripcion: "La cabaña Coaba esta ubicado en el corazón de Arequipa, nuestra casa de campo ofrece mucho más que comodidad: es un espacio donde se siente la tranquilidad, la calma y la alegría de estar vivo. Con piscina privada, cuatrimotor para aventuras inolvidables y todos los servicios necesarios para una estadía perfecta, aquí cada momento invita a reconectar contigo mismo y con quienes amas. Más que un destino, es una experiencia de paz y bienestar que se guarda en el alma.",
-            precio: 599.99,
-            imagenes: [
-                {
-                    itemImageSrc: 'https://imgs.search.brave.com/XCELAc1_tCMM8obdicXkvXbDGemy-mLpYp51_-O8VSo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9ob3Rl/bC1jYXNhLWNhbXBv/LXN1aXRlcy1jb252/ZW5jaW9uZXMtYXJl/cXVpcGEuaG90ZWxt/aXguZXMvZGF0YS9Q/aG90b3MvNzAweDUw/MC8xMTY5NC8xMTY5/NDQ4LzExNjk0NDg3/NzgvSG90ZWwtQ2Fz/YS1DYW1wby1CeS1D/YXNzYW5hLUFyZXF1/aXBhLUV4dGVyaW9y/LkpQRUc',
-                    alt: 'Descripción de la imagen 1'
-                },
-                {
-                    itemImageSrc: 'https://primefaces.org/cdn/primereact/images/galleria/galleria2.jpg',
-                    alt: 'Descripción de la imagen 2'
-                }
-            ]
+            itemImageSrc: 'https://primefaces.org/cdn/primereact/images/galleria/galleria2.jpg',
+            alt: 'Imagen 2'
         },
         {
-            id: 2,
-            nombre: "Cabaña Numero 2",
-            descripcion: "La cabaña Coaba esta ubicado en el corazón de Arequipa, nuestra casa de campo ofrece mucho más que comodidad: es un espacio donde se siente la tranquilidad, la calma y la alegría de estar vivo. Con piscina privada, cuatrimotor para aventuras inolvidables y todos los servicios necesarios para una estadía perfecta, aquí cada momento invita a reconectar contigo mismo y con quienes amas. Más que un destino, es una experiencia de paz y bienestar que se guarda en el alma.",
-            precio: 199.99,
-            imagenes: [
-                {
-                    itemImageSrc: 'https://imgs.search.brave.com/cBSTbXbANZy9b0iI-qZJ2I0Ja35UsccrpZUz1qBgTYM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZi5i/c3RhdGljLmNvbS94/ZGF0YS9pbWFnZXMv/aG90ZWwvbWF4NTAw/LzUyMTA4NTE4NS5q/cGc_az02MGQ4NTZl/OWViNGNiYWVkYjZj/NjlkNjNiMmM3ODk4/ZjM0YjA1ZmYyYTlm/MTczNGIzMjQwMWYx/NzIwODcyYmIzJm89',
-                    alt: 'Imagen de la Cabaña 2,1'
-                },
-                {
-                    itemImageSrc: 'https://imgs.search.brave.com/ztxeoWnRZZjO6PHI5WSzFug8xN_ldiFVYeO2GKGy4lA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/cHJvcGVyYXRpLmNv/bS9leUppZFdOclpY/UWlPaUp3Y21RdGJH/bG1kV3hzWTI5dWJt/VmpkQzFpWVdOclpX/NWtMV0l5WWkxcGJX/Rm5aWE1pTENKclpY/a2lPaUpwYm1kbGMz/UmxjaTh3TVRrMU9E/ZGpPQzFtTnpWaExU/YzBPR0l0T0RWaE1p/MDFaRFkzTVRsbU5U/ZGhaVFV2TW1SaVpE/TXlNMlUzWXpWa1ky/RXdOakZoWWpNME5t/UXlNMlkxTWpGbFpq/Y3pPVEJqWkRsaE5U/WTVOMlkyTkdNMllt/UTVOamRtT1dJelpX/UXlaRGd6WVM1cWNH/Vm5JaXdpWW5KaGJt/UWlPaUp3Y205d1pY/SmhkR2tpTENKbFpH/bDBjeUk2ZXlKeWIz/UmhkR1VpT201MWJH/d3NJbkpsYzJsNlpT/STZleUozYVdSMGFD/STZNekl3TENKb1pX/bG5hSFFpT2pJME1D/d2labWwwSWpvaVky/OTJaWElpZlgxOQ',
-                    alt: 'Imagen de la Cabaña 2,2'
-                }
-            ]
+            itemImageSrc: 'https://primefaces.org/cdn/primereact/images/galleria/galleria2.jpg',
+            alt: 'Imagen 2'
         }
     ];
+
+    const ClientsRecomend = [
+        {
+            name: "Tania Andrew",
+            country: "Perú",
+            img: "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1480&q=80",
+            description: "I found solution to all my design needs from Creative Tim. I use them as a freelancer in my hobby projects for fun! And it's really affordable, very humble guys !!!",
+            rating: 5.0
+        },
+        {
+            name: "Carlos García",
+            country: "México",
+            img: "https://randomuser.me/api/portraits/men/32.jpg",
+            description: "Great experience! The platform helped me speed up my workflow and the components were easy to customize.",
+            rating: 4.5
+        },
+        {
+            name: "Julia Fernandes",
+            country: "Brasil",
+            img: "https://randomuser.me/api/portraits/women/45.jpg",
+            description: "Very helpful templates and a friendly team behind the scenes. Highly recommended!",
+            rating: 4.8
+        },
+        {
+            name: "Diego Sánchez",
+            country: "Argentina",
+            img: "https://randomuser.me/api/portraits/men/76.jpg",
+            description: "The UI/UX design is top-notch. I integrated everything seamlessly into my Laravel project.",
+            rating: 5.0
+        },
+        {
+            name: "Andrea Paredes",
+            country: "Chile",
+            img: "https://randomuser.me/api/portraits/women/30.jpg",
+            description: "It saved me days of development. The documentation is clear and the code quality is impressive.",
+            rating: 4.7
+        },
+        {
+            name: "Luis Romero",
+            country: "Colombia",
+            img: "https://randomuser.me/api/portraits/men/50.jpg",
+            description: "From design to deployment, it’s a smooth ride. Amazing job by the team!",
+            rating: 4.9
+        }
+    ];
+
     return (
         <>
             {/*Inicio hero*/}
@@ -93,17 +119,153 @@ function AboutUs() {
             </div>
             {/*Fin  pilares*/}
 
+            {/*Inicio Nuestra Historia*/}
             <div className="md:px-20 md:py-14 p-7 bg-gray-100">
                 <div className="container md:px-10 mx-auto md:flex">
-                    <div className="md:mx-7">
-                        <h2 className="md:text-4xl font-bold flex justify-center text-center text-2xl">Casas de campo acogedoras y confortables</h2>
-                    </div>
-                    <div>
-                       
+                    <Carousel images={imagenesCarrusel} />
+                    <div className="md:mx-7 w-1/2">
+                        <h2 className="md:text-4xl font-bold flex justify-start text-2xl">Nuestra Historia</h2>
+                        <div className="flex flex-wrap justify mt-4 gap-x-2">
+                            <div className="text-xl text-green-600">
+                                Un refugio de tranquilidad y aventura.
+                            </div>
+                            <p className="mt-3 text-lg pr-8">
+                                Casa Campoi Arequipa nació hace tres años con el sueño de ofrecer un espacio donde la tranquilidad,
+                                la naturaleza y la aventura se encuentren en perfecta armonía. Ubicadas en la encantadora región de Arequipa,
+                                nuestras cabañas rústicas están pensadas para brindar una experiencia acogedora,
+                                romántica y auténticamente relajante.
+                            </p>
+                        </div>
+                        <div className="flex justify-between mt-5 ">
+                            <div className="flex gap-x-11">
+                                <div className="flex flex-col text-center items-center">
+                                    <Trees size={"50px"} color="#235633" />
+                                    <p className="mt-1">Naturaleza</p>
+                                </div>
+                                <div className="flex flex-col text-center items-center">
+                                    <RockingChair size={"50px"} color="#235633" />
+                                    <p className="mt-1">Descanso</p>
+                                </div>
+                                <div className="flex flex-col text-center items-center">
+                                    <MountainSnow size={"50px"} color="#235633" />
+                                    <p className="mt-1">Aventura</p>
+                                </div>
+                                <div className="flex flex-col text-center items-center">
+                                    <Users size={"50px"} color="#235633" />
+                                    <p className="mt-1">Familia</p>
+                                </div>
+                            </div>
 
+                            <div className="flex justify-start mt-5">
+                                <button className="btn text-red-700 border-red-400 hover:text-white hover:bg-red-700 w-auto">
+                                    Reservar Ya!
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            {/*fin Nuestra Historia*/}
+
+            {/* Inico Mision y Vision */}
+            <div className="md:px-20 md:py-6 p-7">
+                <div className="container mx-auto">
+                    <section className="md:px-16">
+                        <div className="grid md:grid-cols-2 gap-10">
+                            {/* Misión */}
+                            <div className="flex space-x-4 p-9 items-center">
+                                <div className="text-primary border-r p-4">
+                                    <div className="rounded-md h-44 w-56 text-center flex items-center justify-center">
+                                        <img src="../../src/assets/aboutus/Mision.png" alt="" />
+                                    </div>
+                                </div>
+                                <div className="flex flex-wrap">
+                                    <h3 className="text-2xl font-semibold text-gray-800 mb-2">Misión</h3>
+                                    <p className="text-gray-600 text-lg">
+                                        Queremos ser su destino elegido para desconectarse del ajetreo y reconectar con lo esencial.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Visión */}
+                            <div className="flex space-x-4 p-9 items-center">
+                                <div className="text-primary border-r p-4">
+                                    <div className="rounded-md h-44 w-56 text-center flex items-center justify-center">
+                                        <img src="../../src/assets/aboutus/Vision.png" alt="" />
+                                    </div>
+                                </div>
+                                <div className="flex flex-wrap">
+                                    <h3 className="text-2xl font-semibold text-gray-800 mb-2">Misión</h3>
+                                    <p className="text-gray-600 text-lg">
+                                        Soñamos con expandir nuestras opciones de alojamiento y seguir creando experiencias únicas.
+                                    </p>
+                                </div>
+                            </div>
+                            {/* <div className="flex items-start space-x-4">
+                                <div className="text-primary">
+                                    <div className="rounded-md h-44 w-56 text-center flex items-center justify-center">
+                                        <img src="../../src/assets/aboutus/Vision.png" alt="" />
+                                    </div>
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-semibold text-gray-800 mb-2">Visión</h3>
+                                    <p className="text-gray-600">
+                                        Soñamos con expandir nuestras opciones de alojamiento y seguir creando experiencias únicas.
+                                    </p>
+                                </div>
+                            </div> */}
+
+                        </div>
+                    </section>
+                </div>
+            </div>
+
+
+            <section className='py-4 mt-3 mb-7'>
+                <main className="w-full flex flex-col gap-3 items-center justify-center mb-10">
+                    <h2 className="md:text-4xl text-2xl font-bold capitalize">
+                        Nuestros Clientes nos Respaldan
+                    </h2>
+                </main>
+                <div className="container">
+                    <div className="carousel-wrapper overflow-hidden w-full">
+                        <div className='flex whitespace-normal animate-scroll'>
+                            {/* desde aqui */}
+                            {[...ClientsRecomend, ...ClientsRecomend, ...ClientsRecomend].map((blog, index) => (
+                                <div class=" h-full w-[400px] m-2 flex-shrink-0 cursor-pointer border p-3 rounded-2xl">
+                                    <div class="flex items-center gap-x-9 text-slate-800 justify-between">
+                                        <div className="flex gap-x-4">
+                                            <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=1480&amp;q=80"
+                                                alt="Tania Andrew" class="inline-block h-[58px] w-[58px] !rounded-full  object-cover object-center" />
+                                            <div class="items-center justify-between">
+                                                <h5 class="text-xl font-semibold text-slate-800">
+                                                    Tania Andrew
+                                                </h5>
+                                                <p class="text-xs uppercase font-bold text-slate-500 mt-0.5">
+                                                    Perú
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <CottageRating details={ClientsRecomend.details} />
+                                    </div>
+                                    <div className="border-b mt-2"></div>
+                                    <div class="mt-2">
+                                        <p className="text-base text-slate-600 font-light leading-normal break-words text-justify">
+                                            &quot;I found solution to all my design needs from Creative Tim. I use
+                                            them as a freelancer in my hobby projects for fun! And its really
+                                            affordable, very humble guys !!!&quot;
+                                        </p>
+                                    </div>
+                                </div>
+                            )
+                            )}
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
         </>
     );
 }
