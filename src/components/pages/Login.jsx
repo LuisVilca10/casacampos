@@ -5,14 +5,16 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-red-100 to-red-700 flex items-center justify-center px-4">
+        <div style={{
+            backgroundImage: "linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://a0.muscache.com/pictures/8f09d56f-f521-40b4-b1bd-2cfef0d8b8ed.jpg')",
+        }} className="min-h-screen bg-gradient-to-br flex items-center justify-center px-4">
             <div className="w-full max-w-md space-y-6 bg-white/30 backdrop-blur-md border border-white/20 rounded-2xl shadow-xl p-8">
                 <div className="text-center">
                     <div className="mx-auto mb-4 w-16 h-16 bg-red-700 text-white rounded-full flex items-center justify-center">
                         <span className="text-3xl font-bold">🏕️</span>
                     </div>
                     <h2 className="text-2xl font-bold text-red-700">Bienvenido a</h2>
-                    <h1 className="text-3xl font-bold text-brown-700">Casa Campo Arequipa</h1>
+                    <h1 className="text-3xl font-bold text-gray-100">Casa Campo Arequipa</h1>
                 </div>
 
                 <form className="space-y-4">
@@ -40,19 +42,19 @@ const Login = () => {
                         </button>
                     </label>
                     <div className="flex justify-between items-center text-sm">
-                        <label className="flex items-center gap-2">
-                            <input type="checkbox" className="checkbox checkbox-sm border border-" />
+                        <label className="flex items-center gap-2 text-gray-200">
+                            <input type="checkbox" className="checkbox checkbox-sm border text-white border-white bg-white/30" />
                             Recuérdame
                         </label>
-                        <a href="#" className="text-teal-600 hover:underline">¿Olvidaste tu contraseña?</a>
+                        <a href="#" className="text-white border-b hover:underline">¿Olvidaste tu contraseña?</a>
                     </div>
 
-                    <button className="btn btn-block bg-red-700 hover:bg-red-800 text-white border border-red-700">
+                    <button className="btn btn-block bg-green-700 hover:bg-green-800 text-white border border-green-700">
                         Iniciar sesión
                     </button>
                 </form>
 
-                <div className="divider text-sm">o ingresa con</div>
+                <div className="divider text-sm text-gray-200">o ingresa con</div>
 
                 <div className="flex gap-4">
                     <button className="btn btn-outline flex-1 bg-blue-700 text-white border border-blue-700">
@@ -65,9 +67,9 @@ const Login = () => {
                     </button>
                 </div>
 
-                <p className="text-center text-sm">
+                <p className="text-center text-sm text-white">
                     ¿No tienes una cuenta?{' '}
-                    <a href="#" className="text-teal-800 hover:underline">Regístrate</a>
+                    <a href="#" className="ml-4 text-white/80 hover:underline border-b">Regístrate</a>
                 </p>
             </div>
         </div >
