@@ -60,7 +60,7 @@ function NavBar() {
                 <div className="dropdown dropdown-end">
                     <div tabIndex={0} role="button" className="border p-1 rounded-2xl border-gray-600"><User size={'28'} color='#000000' /></div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                        <li><a><User />Iniciar Sesión</a></li>
+                        <li><a href='/login'><User />Iniciar Sesión</a></li>
                         <li className="border-r-2 border-gray-300 pr-4"></li>
                         <li><a><LogIn />Registrase</a></li>
                     </ul>
