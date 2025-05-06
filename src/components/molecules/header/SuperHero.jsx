@@ -1,24 +1,28 @@
+import { MailCheck, MapPinHouse, PhoneCall } from "lucide-react";
+
 function SuperHero() {
 
-    return (
-        <>
-            <div className="2xl:w-1/3 xl:w-1/3 md:w-1/2 mx-auto lg:flex md:flex md:justify-between bg-red-700 text-white items-center lg:justify-center text-[0.625rem] md:text-xs px-4 py-1 sm:flex-none rounded-b-2xl transition-all duration-500">
-                <ul className="flex space-x-4 justify-center flex-row">
-                    <li className="flex items-center">
-                        <i className="fa-solid fa-location-dot mr-1"></i>Arequipa - Yanahuara
-                    </li>
-                    <li className="flex items-center">
-                        <i className="fa-solid fa-phone mr-1"></i>+51 950280738
-
-                    </li>
-                    <li className="flex items-center">
-                        <i className="fa-solid fa-envelope mr-1"></i><a href="mailto:arequipacasacampo@gmail.com">arequipacasacampo@gmail.com</a>
-                    </li>
-                </ul>
-            </div>
-            {/* fin super-header */}
-        </>
-    );
+  return (
+    <>
+      <div className="2xl:w-1/3 xl:w-1/3 md:w-1/2 mx-auto lg:flex md:flex md:justify-between bg-red-700 text-white items-center lg:justify-center text-[0.625rem] md:text-xs px-4 py-1 sm:flex-none rounded-b-2xl transition-all duration-500">
+        <ul className="flex space-x-4 justify-center flex-row">
+          <li className="flex items-center gap-x-1">
+            <MapPinHouse size={"15px"} />
+            Arequipa - Yanahuara
+          </li>
+          <li className="flex items-center gap-x-1">
+            <PhoneCall size={"15px"} />
+            +51 950 280 738
+          </li>
+          <li className="flex items-center gap-x-1">
+            <MailCheck size={"15px"} />
+            <a href="mailto:arequipacasacampo@gmail.com">arequipacasacampo@gmail.com</a>
+          </li>
+        </ul>
+      </div>
+      {/* fin super-header */}
+    </>
+  );
 }
 
 export default SuperHero;
