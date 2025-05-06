@@ -4,6 +4,7 @@ import Home from "../components/pages/Home";
 import AboutUs from "../components/pages/AboutUs";
 import ContactUs from "../components/pages/ContacTUs";
 import Login from "../components/pages/Login";
+import Admin from "../components/templates/Admin";
 
 
 const router = createBrowserRouter([
@@ -30,6 +31,11 @@ const router = createBrowserRouter([
         element: <Login />,
 
     },
+    {
+        path: "/admin",
+        element: <Admin />,
+        
+    }
 ])
 
 export default router
