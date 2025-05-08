@@ -8,6 +8,7 @@ function ContactUs() {
             <HeroBase subtitle="Contáctanos" description="¿Tienes preguntas, quieres reservar o simplemente saber más sobre nuestras cabañas? Escríbenos y con gusto te responderemos.">
             </HeroBase>
             {/*Fin hero*/}
+            
             <div className="container mx-auto py-16 px-4 md:px-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
