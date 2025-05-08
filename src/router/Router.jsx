@@ -5,6 +5,9 @@ import AboutUs from "../components/pages/AboutUs";
 import ContactUs from "../components/pages/ContacTUs";
 import Login from "../components/pages/Login";
 import Admin from "../components/templates/Admin";
+import Register from "../components/pages/Register";
+import RememberPassword from "../components/pages/RememberPassword";
+import SearcCottage from "../components/pages/SearcCottage";
 
 
 const router = createBrowserRouter([
@@ -23,7 +26,11 @@ const router = createBrowserRouter([
             {
                 path: "/contactanos",
                 element: <ContactUs />
-            }
+            },
+            {
+                path: "/SearchCottage",
+                element: <SearcCottage />
+            },
         ]
     },
     {
@@ -32,9 +39,19 @@ const router = createBrowserRouter([
 
     },
     {
+        path: "/register",
+        element: <Register />,
+
+    },
+    {
+        path: "/rememberpassqord",
+        element: <RememberPassword />,
+
+    },
+    {
         path: "/admin",
         element: <Admin />,
-        
+
     }
 ])
 

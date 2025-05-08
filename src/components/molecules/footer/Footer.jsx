@@ -173,8 +173,9 @@ const Footer = () => {
                     <p className="text-gray-400">
                         &copy; {new Date().getFullYear()} Casa Campo Arequipa. Todos los
                         derechos reservados.
+
                     </p>
-                    <p>Desarrollado por Grupo Mani Code</p>
+                    <p className="text-gray-400">power by <span className="text-white hover:border-b"> <a href="http://maniscode.online/">Mani Dev`s</a> </span></p>
                 </div>
             </footer>
         </>

@@ -3,15 +3,15 @@ import { Mail, Lock, Facebook, Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from "react-router-dom";
 import Authentication from "../templates/Authentication";
 
-const Login = () => {
+const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const nav = useNavigate();
-    const handleLogin = async (e) => {
+    const handleRegister = async (e) => {
         nav("/admin");
     };
     return (
         <Authentication>
-            <form onSubmit={handleLogin} className="space-y-4">
+            <form onSubmit={handleRegister} className="space-y-4">
                 <label className="w-full bg-white/60 text-sm rounded-lg px-4 py-2 flex items-center gap-2 shadow-sm border border-transparent focus-within:ring-2 focus-within:ring-gray-500">
                     <svg className="h-[1.8em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <Mail size={"25px"} />
@@ -44,7 +44,7 @@ const Login = () => {
                 </div>
 
                 <button type="submit" className="btn btn-block bg-green-700 hover:bg-green-800 text-white border border-green-700">
-                    Iniciar sesión
+                    Crear Cuenta
                 </button>
             </form>
 
@@ -62,11 +62,11 @@ const Login = () => {
             </div>
 
             <p className="text-center text-sm text-white">
-                ¿No tienes una cuenta?{' '}
-                <Link to={"/register"} className="ml-4 text-white/80 border-b" >Regístrate</Link>
+                ¿Ya tienes una cuenta?{' '}
+                <Link to={"/login"} className="ml-4 text-white/80 border-b" >Ingresar</Link>
             </p>
         </Authentication>
     );
 };
 
-export default Login;
+export default Register;

@@ -18,7 +18,7 @@ function NavBar() {
                 </div>
 
 
-                <div className="hidden sm:flex justify-center text-sm -ml-44 mt-4 text-black">
+                <div className="hidden sm:flex justify-center text-sm -ml-40 mt-4 text-black">
                     <ul className="flex divide-x  md:opacity-100 duration-300">
                         <li
                             className="cursor-pointer px-2 rounded hover:bg-gray-200"
@@ -27,6 +27,15 @@ function NavBar() {
                                 isActive ? 'text-red-700 font-bold' : 'text-sm'
                             } to={"/"} >
                                 Inicio
+                            </NavLink>
+                        </li>
+                        <li
+                            className="cursor-pointer px-2 rounded hover:bg-gray-200"
+                        >
+                            <NavLink className={({ isActive }) =>
+                                isActive ? 'text-red-700 font-bold' : 'text-sm'
+                            } to={"/SearchCottage"} >
+                                Reservar
                             </NavLink>
                         </li>
                         <li
@@ -62,7 +71,7 @@ function NavBar() {
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                         <li><a href='/login'><User />Iniciar Sesión</a></li>
                         <li className="border-r-2 border-gray-300 pr-4"></li>
-                        <li><a><LogIn />Registrase</a></li>
+                        <li><Link to={"/register"} ><LogIn />Registrase</Link></li>
                     </ul>
                 </div>
             </div>
