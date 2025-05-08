@@ -34,7 +34,7 @@ function PeopleSelector() {
 
     return (
         <>
-            <div className="relative w-full">
+            <div className="relative w-full border rounded-lg">
                 {/* Input visual principal */}
                 <div
                     ref={inputRef}

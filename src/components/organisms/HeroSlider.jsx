@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function HeroSlider() {
     const [range, setRange] = useState([null, null]);
-    const [startDate, endDate] = range;
+    
 
     return (
         <div className="bg-center bg-cover py-20 flex flex-col justify-center text-white px-4"
