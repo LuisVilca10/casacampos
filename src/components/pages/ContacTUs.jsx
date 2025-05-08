@@ -1,18 +1,12 @@
 import { Phone, Mail, User, MessageCircle, Pencil, MapPinHouse, MailCheck } from "lucide-react";
+import HeroBase from "../molecules/HeroBase";
 
 function ContactUs() {
     return (
         <>
             {/*Inicio hero*/}
-            <div className="bg-center bg-cover py-20 flex flex-col justify-center text-white px-4"
-                style={{
-                    backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://a0.muscache.com/pictures/8f09d56f-f521-40b4-b1bd-2cfef0d8b8ed.jpg')",
-                }}>
-                <div className="flex flex-col h-full w-full text-white text-start container mx-auto md:mt-12 md:mb-10">
-                    <h1 className="text-5xl 2xl:text-6xl font-bold mb-2 md:w-1/2">Contáctanos</h1>
-                    <p className="text-lg 2xl:text-xl mb-2 md:text-start md:w-1/2 font-extralight">¿Tienes preguntas, quieres reservar o simplemente saber más sobre nuestras cabañas? Escríbenos y con gusto te responderemos.</p>
-                </div>
-            </div>
+            <HeroBase subtitle="Contáctanos" description="¿Tienes preguntas, quieres reservar o simplemente saber más sobre nuestras cabañas? Escríbenos y con gusto te responderemos.">
+            </HeroBase>
             {/*Fin hero*/}
             <div className="container mx-auto py-16 px-4 md:px-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
