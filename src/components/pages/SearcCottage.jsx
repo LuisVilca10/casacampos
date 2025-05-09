@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { CircleParking, UsersRound, Volleyball, WavesLadder, Wifi } from 'lucide-react';
+import { Banknote, CircleParking, UsersRound, Volleyball, WavesLadder, Wifi } from 'lucide-react';
 import Carousel from "../molecules/carousel/Carousel";
 import CottageRating from "../atoms/CottageRating";
 import DatePickerComponent from "../atoms/DatePickerComponent";
@@ -64,7 +64,7 @@ const SearcCottage = () => {
     return (
         <>
             <div className="py-10 space-y-4 container mx-auto">
-                <div className="bg-red-700/60 shadow-lg md:p-4 pt-5 lg:flex flex-row items-center justify-center gap-4 w-full max-w-5xl grid">
+                <div className="bg-red-700/60 rounded-2xl shadow-lg md:p-4 pt-5 lg:flex flex-row items-center justify-center gap-4 w-full max-w-5xl grid">
                     <DatePickerComponent range={range} setRange={setRange} />
                     <PeopleSelector />
                     <a to={"/SearchCottage"}>
@@ -74,11 +74,18 @@ const SearcCottage = () => {
 
                 {/* Zona de contenido */}
                 <div className="grid grid-cols-4 gap-4">
-
                     {/* Filtros */}
                     <div className="col-span-1 border p-4 rounded-xl space-y-2">
+                        <div className="mt-5">
+                            <iframe
+                                title="Imagen"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.9153845853557!2d-71.5348554!3d-16.3772141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424b0046940e37%3A0x6dce74acc45296dc!2sCasa%20Campo%20Arequipa!5e1!3m2!1ses-419!2spe!4v1728063705471!5m2!1ses-419!2spe"
+                                className="rounded-lg border lg:w-[280px] lg:h-[200px] object-cover w-full"
+                                loading="lazy"
+                            ></iframe>
+                        </div>
                         <h2 className="font-bold">Filtrar por:</h2>
-                        <div className="border-t">
+                        <div className="border-t pb-2">
                             <div className="font-semibold my-1">Paquetes</div>
                             <select
                                 onChange={(e) => {
@@ -95,10 +102,21 @@ const SearcCottage = () => {
                             </select>
 
                         </div>
-                        <label className="label">Precio por noche</label>
-                        <input type="range" min="50" max="300" className="range range-sm" />
-                        <label className="label">Capacidad</label>
-                        <input type="range" min="2" max="12" className="range range-sm" />
+                        <div className="border-t pb-2">
+                            <div className="font-semibold my-1">Precio por noche</div>
+                            <label className="input  input-primary">
+                                <Banknote />
+                                <input type="number" className="grow validator" min="1" placeholder="200" />
+                            </label>
+                        </div>
+                        <div className="border-t ">
+                            <div className="font-semibold my-1">Ofertas</div>
+
+                            <label className="label">
+                                <input type="checkbox" defaultChecked className="checkbox border-blue-600" />
+                                Buscar
+                            </label>
+                        </div>
                     </div>
 
                     {/* Resultados */}

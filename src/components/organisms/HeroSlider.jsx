@@ -8,7 +8,7 @@ function HeroSlider() {
     
 
     return (
-        <div className="bg-center bg-cover py-20 flex flex-col justify-center text-white px-4"
+        <div className="bg-center bg-cover p-12 2xl:py-20 flex flex-col justify-center text-white px-4"
             style={{
                 backgroundImage: "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://a0.muscache.com/pictures/8f09d56f-f521-40b4-b1bd-2cfef0d8b8ed.jpg')",
             }}>
