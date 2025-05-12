@@ -28,8 +28,18 @@ function PeopleSelector() {
         };
     }, []);
 
-    const handleChange = (setter, value) => {
-        if (value >= 0) setter(value);
+    const handlePerson = (type, value) => {
+        if (type === 'rooms') {
+            if (value >= 0 && value <= 8) setRooms(value);
+            return;
+        }
+        const total = type === 'adults' ? value + children : type === 'children' ? adults + value : adults + children;
+
+        if (value >= 0 && total <= 16) {
+            if (type === 'adults') setAdults(value);
+            else if (type === 'children') setChildren(value);
+        }
+
     };
 
     return (
@@ -54,23 +64,23 @@ function PeopleSelector() {
                         ref={panelRef}
                         className="absolute bg-white shadow-lg rounded-md p-4 mt-2 z-10 w-full space-y-3 text-black"
                     >
-                        {[{ label: "Adultos", value: adults, setter: setAdults },
-                        { label: "Niños", value: children, setter: setChildren },
-                        { label: "Habitaciones", value: rooms, setter: setRooms },
+                        {[{ label: "Adultos", value: adults, type: "adults", setter: setAdults },
+                        { label: "Niños", value: children, type: "children", setter: setChildren },
+                        { label: "Habitaciones", value: rooms, type: "rooms", setter: setRooms },
                         ].map((item, idx) => (
                             <div key={idx} className="flex justify-between items-center">
                                 <span>{item.label}</span>
                                 <div className="flex items-center gap-2">
                                     <button
                                         className="bg-gray-200 px-2 py-1 rounded"
-                                        onClick={() => handleChange(item.setter, item.value - 1)}
+                                        onClick={() => handlePerson(item.type, item.value - 1)}
                                     >
                                         <Minus size={14} />
                                     </button>
                                     <span>{item.value}</span>
                                     <button
                                         className="bg-gray-200 px-2 py-1 rounded"
-                                        onClick={() => handleChange(item.setter, item.value + 1)}
+                                        onClick={() => handlePerson(item.type, item.value + 1)}
                                     >
                                         <Plus size={14} />
                                     </button>
