@@ -16,6 +16,16 @@
   animation: scroll 24s linear infinite;
 }
 
+.spin {
+  animation: rotation infinite 2s ease-out;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(2turn);
+  }
+}
+
 .carousel-wrapper:hover .animate-scroll {
   animation-play-state: paused;
 }

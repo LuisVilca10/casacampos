@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import Loader from "../components/atoms/Loader";
 
 // Lazy load de componentes
 const App = lazy(() => import("../components/templates/App"));
@@ -14,7 +15,7 @@ const Admin = lazy(() => import("../components/templates/Admin"));
 const GuestRoute = lazy(() => import("./GuestRoute"));
 
 // Fallback simple
-const loader = <div className="text-center py-10 text-gray-500">Cargando...</div>;
+const loader =  <Loader />;
 
 const router = createBrowserRouter([
     {
