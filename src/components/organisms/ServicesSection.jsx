@@ -1,58 +1,58 @@
 function ServicesSection() {
     const serviceTexts = [
         {
-            img: "../../../src/assets/icons/vista_montana.png",
+            img: "/icons/vista_montana.png",
             title: "Vista al volcan",
             description: "Rodeado de naturaleza para relajarse y disfrutar.",
         },
         {
-            img: "../../../src/assets/icons/piscina.png",
+            img: "/icons/piscina.png",
             title: "Piscina Temperada",
             description: "Piscina al aire libre privada - abierto las 24 horas.",
         },
         {
-            img: "../../../src/assets/icons/wifi_gratis.png",
+            img: "/icons/wifi_gratis.png",
             title: "WiFi Gratuito", // Traducción dinámica
             description: "Conexión rápida y gratuita en todas las cabañas.", // Traducción dinámica
         },
         {
-            img: "../../../src/assets/icons/cocina.png",
+            img: "/icons/cocina.png",
             title: "Cocina Equipada",
             description: "Los huéspedes pueden cocinar en este espacio.",
         },
         {
-            img: "../../../src/assets/icons/fogata.png",
+            img: "/icons/fogata.png",
             title: "translations.fogata_title",
             description: "translations.fogata_description",
         },
 
         {
-            img: "../../../src/assets/icons/estacionamiento.png",
+            img: "/icons/estacionamiento.png",
             title: "translations.estacionamiento_title",
             description: "translations.estacionamiento_description",
         },
         {
-            img: "../../../src/assets/icons/seguridad_cam.png",
+            img: "/icons/seguridad_cam.png",
             title: "translations.seguridad_24_7_title",
             description: "translations.seguridad_24_7_description",
         },
         {
-            img: "../../../src/assets/icons/tv.png",
+            img: "/icons/tv.png",
             title: "translations.television_title",
             description: "translations.television_description",
         },
         {
-            img: "../../../src/assets/icons/grill.png",
+            img: "/icons/grill.png",
             title: "translations.parrilla_title",
             description: "translations.parrilla_description",
         },
         {
-            img: "../../../src/assets/icons/futbol.png",
+            img: "/icons/futbol.png",
             title: "translations.futbol_title",
             description: "translations.futbol_description",
         },
         {
-            img: "../../../src/assets/icons/sapo.png",
+            img: "/icons/sapo.png",
             title: "translations.sapo_title",
             description: "translations.sapo_description",
         },
