@@ -1,183 +1,124 @@
 const Footer = () => {
     return (
-        <>
-            <footer className="text-white py-10 bg-cover bg-center "
-                style={{
-                    backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../src/assets/fondo-01.jpeg')`
-                }}>
-                <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start md:items-center gap-5 lg:items-baseline lg:gap-10 space-y-8 lg:space-y-0 px-4">
-                    {/* Logo y descripción */}
-                    <div className="flex-1 lg:min-w-64">
-                        <div className="flex gap-2 items-center pb-4">
-                            <img
-                                className="h-auto w-14 sm:w-24"
-                                src="../../src/assets/logo.png"
-                                alt="--"
-                            />
-                            <h2 className="text-2xl font-bold">Casa Campo Arequipa</h2>
-                        </div>
-                        <p className="text-gray-400 leading-relaxed">
-                            Ubicado en el corazón de Arequipa, Casa Campo Arequipa te brinda
-                            una experiencia única donde la naturaleza y el descanso se unen.
-                            Disfruta de un entorno rodeado de majestuosos árboles y vegetación
-                            exuberante que te invita a desconectar de la rutina diaria.
-                        </p>
+        <><footer
+            className="text-white py-10 bg-cover bg-center"
+            style={{
+                backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/fondo-01.jpeg')`,
+            }}
+        >
+            <div className="container mx-auto flex flex-col lg:flex-row justify-between items-start gap-10 px-4">
+                {/* Logo y descripción */}
+                <div className="flex-1 min-w-[250px]">
+                    <div className="flex items-center gap-3 mb-4">
+                        <img
+                            className="w-14 sm:w-24"
+                            src="/logo.png"
+                            alt="Casa Campo Arequipa"
+                        />
+                        <h2 className="text-2xl font-bold">Casa Campo Arequipa</h2>
                     </div>
-
-                    <div
-                        style={{ marginTop: "0px" }}
-                        className="flex flex-col md:flex-row items-start gap-5 md:items-baseline lg:gap-10 m-auto mt-0"
-                    >
-                        <div className="responsive-link-polity">
-                            {/* Enlaces rápidos */}
-                            <div className="flex-1 grid sm:justify-center max-w-[162px]">
-                                <h3 className="text-xl font-semibold mb-4">Enlaces rápidos</h3>
-                                <ul className="space-y-2">
-                                    <li>
-                                        <a href="/" className="text-gray-400 hover:text-white">
-                                            Inicio
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/" className="text-gray-400 hover:text-white">
-                                            Sobre nosotros
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/" className="text-gray-400 hover:text-white">
-                                            Servicios
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="/" className="text-gray-400 hover:text-white">
-                                            Contacto
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            {/* Políticas y Condiciones */}
-                            <div className="flex-1 grid justify-center">
-                                <h3 className="text-xl font-semibold mb-4">
-                                    Políticas y Condiciones
-                                </h3>
-                                <ul className="space-y-2">
-                                    <li>
-                                        <a href="#" className="text-gray-400 hover:text-white">
-                                            Política de Datos Personales
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="text-gray-400 hover:text-white">
-                                            Aviso de Privacidad
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#" className="text-gray-400 hover:text-white">
-                                            Términos y Condiciones de Uso
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Comunícate con nosotros y Redes sociales */}
-                        <div className="flex-1 grid justify-center gap-5">
-                            <div>
-                                <h3 className="text-xl font-semibold mb-4">
-                                    Comunícate con nosotros
-                                </h3>
-                                <div className="flex flex-col space-y-4 p-4 rounded-lg">
-                                    {/* Asistente Virtual */}
-                                    <div className="flex items-start space-x-2 text-gray-400">
-                                        <i className="fas fa-comment text-gray-400 text-xl"></i>
-                                        <div>
-                                            <p className="font-semibold ">Asistente virtual</p>
-                                            <p className="text-sm">Te atenderá las 24 hrs</p>
-                                        </div>
-                                    </div>
-
-                                    {/* Escribir */}
-                                    <div className="flex items-start space-x-2 text-gray-400">
-                                        <i className="fas fa-envelope text-gray-400 text-xl"></i>
-                                        <div>
-                                            <p className="font-semibold">Escríbenos</p>
-                                            <p className="text-sm">
-                                                Estamos para ayudarte{" "}
-                                                <a
-                                                    href="mailto:servicioalcliente@spsa.pe"
-                                                    className="text-white hover:underline"
-                                                >
-                                                    arequipacasacampo@gmail.com
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-
-                                    {/* Llamar */}
-                                    <div className="flex items-start space-x-2 text-gray-400">
-                                        <i className="fas fa-phone-alt text-gray-400 text-xl"></i>
-                                        <div>
-                                            <p className="font-semibold">Llámanos</p>
-                                            <p className="text-sm">
-                                                Centro de servicio al cliente en Arequipa:{" "}
-                                                <a
-                                                    href="tel:+516258000"
-                                                    className="text-white hover:underline"
-                                                >
-                                                    (+51) 950 280 738
-                                                </a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-semibold mb-4">Síguenos en:</h3>
-                                <div className="flex space-x-4">
-                                    <a
-                                        href="https://www.facebook.com/profile.php?id=61564315336410&locale=es_LA"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-gray-400 hover:text-white"
-                                    >
-                                        <i className="fab fa-facebook-f"></i>
-                                    </a>
-                                    {/* <a href="#" className="text-gray-400 hover:text-white">
-                    <i className="fab fa-twitter"></i>
-                  </a> */}
-                                    <a
-                                        href="https://www.instagram.com/Casacampoaqp/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-gray-400 hover:text-white"
-                                    >
-                                        <i className="fab fa-instagram"></i>
-                                    </a>
-                                    <a
-                                        href="https://www.tiktok.com/@casacampo.arequipa"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-gray-400 hover:text-white"
-                                    >
-                                        <i className="fa-brands fa-tiktok"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Derechos de autor */}
-                <div className="border-t border-gray-700 mt-10 pt-6 text-center">
-                    <p className="text-gray-400">
-                        &copy; {new Date().getFullYear()} Casa Campo Arequipa. Todos los
-                        derechos reservados.
-
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                        Ubicado en el corazón de Arequipa, Casa Campo te brinda una experiencia
+                        única donde la naturaleza y el descanso se unen. Disfruta de un entorno
+                        rodeado de árboles y vegetación que invita a desconectar.
                     </p>
-                    <p className="text-gray-400">power by <span className="text-white hover:border-b"> <a href="http://maniscode.online/">Mani Dev`s</a> </span></p>
                 </div>
-            </footer>
+
+                {/* Enlaces rápidos y Políticas */}
+                <div className="flex-1 flex flex-col sm:flex-row justify-between gap-8">
+                    <div>
+                        <h3 className="text-lg font-semibold mb-3">Enlaces rápidos</h3>
+                        <ul className="text-sm text-gray-300 space-y-2">
+                            <li><a href="/" className="hover:text-white">Inicio</a></li>
+                            <li><a href="/nosotros" className="hover:text-white">Sobre nosotros</a></li>
+                            <li><a href="/servicios" className="hover:text-white">Servicios</a></li>
+                            <li><a href="/contacto" className="hover:text-white">Contacto</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 className="text-lg font-semibold mb-3">Políticas</h3>
+                        <ul className="text-sm text-gray-300 space-y-2">
+                            <li><a href="#" className="hover:text-white">Política de Datos</a></li>
+                            <li><a href="#" className="hover:text-white">Privacidad</a></li>
+                            <li><a href="#" className="hover:text-white">Términos de Uso</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                {/* Contacto y Redes */}
+                <div className="flex-1 min-w-[250px]">
+                    <h3 className="text-lg font-semibold mb-4">Contáctanos</h3>
+                    <div className="space-y-4 text-sm text-gray-300">
+                        <div>
+                            <p className="font-semibold">Asistente Virtual</p>
+                            <p>Disponible 24/7</p>
+                        </div>
+                        <div>
+                            <p className="font-semibold">Email</p>
+                            <a
+                                href="mailto:arequipacasacampo@gmail.com"
+                                className="hover:text-white"
+                            >
+                                arequipacasacampo@gmail.com
+                            </a>
+                        </div>
+                        <div>
+                            <p className="font-semibold">Teléfono</p>
+                            <a href="tel:+51950280738" className="hover:text-white">
+                                (+51) 950 280 738
+                            </a>
+                        </div>
+                        <div className="mt-4">
+                            <h4 className="font-semibold mb-2">Síguenos</h4>
+                            <div className="flex space-x-4 text-xl">
+                                <a
+                                    href="https://www.facebook.com/profile.php?id=61564315336410&locale=es_LA"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white"
+                                >
+                                    <i className="fab fa-facebook-f"></i>
+                                </a>
+                                <a
+                                    href="https://www.instagram.com/Casacampoaqp/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white"
+                                >
+                                    <i className="fab fa-instagram"></i>
+                                </a>
+                                <a
+                                    href="https://www.tiktok.com/@casacampo.arequipa"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:text-white"
+                                >
+                                    <i className="fab fa-tiktok"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Derechos */}
+            <div className="mt-10 pt-6 border-t border-gray-700 text-center text-sm text-gray-400">
+                <p>&copy; {new Date().getFullYear()} Casa Campo Arequipa. Todos los derechos reservados.</p>
+                <p>
+                    Powered by{" "}
+                    <a
+                        href="https://maniscode.online/"
+                        className="hover:underline text-white"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Mani Dev's
+                    </a>
+                </p>
+            </div>
+        </footer>
+
         </>
     );
 };

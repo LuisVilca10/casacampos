@@ -62,16 +62,16 @@ const SobreNosotros = () => {
                     {/* Galería de imágenes lado derecho */}
                     <div className="grid grid-cols-2 gap-4 w-full md:px-14 px-5 mt-10 md:mt-0">
                         <div className='overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] aspect-square'>
-                            <img src="../../src/assets/cc_04.jpg" alt="Casa Campo" className="rounded-2xl object-cover w-full h-full" />
+                            <img src="/cc_04.jpg" alt="Casa Campo" className="rounded-2xl object-cover w-full h-full" />
                         </div>
                         <div className='overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] aspect-square'>
-                            <img src="../../src/assets/cc_02.jpg" alt="Champán" className="rounded-2xl object-cover w-full h-full" />
+                            <img src="/cc_02.jpg" alt="Champán" className="rounded-2xl object-cover w-full h-full" />
                         </div>
                         <div className='overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] aspect-square'>
-                            <img src="../../src/assets/cc_01.jpg" alt="Casa Campo" className="rounded-2xl object-cover w-full h-full" />
+                            <img src="/cc_01.jpg" alt="Casa Campo" className="rounded-2xl object-cover w-full h-full" />
                         </div>
                         <div className='overflow-hidden rounded-tl-[2.5rem] rounded-br-[2.5rem] aspect-square'>
-                            <img src="../../src/assets/cc_03.jpg" alt="Casa Campo" className="rounded-2xl object-cover w-full h-full" />
+                            <img src="/cc_03.jpg" alt="Casa Campo" className="rounded-2xl object-cover w-full h-full" />
                         </div>
                     </div>
                 </div>

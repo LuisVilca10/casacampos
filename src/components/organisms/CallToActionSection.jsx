@@ -6,7 +6,7 @@ function CallToActionSection() {
         <>
             <div className="bg-center bg-cover grid justify-items-center" style={{
                 backgroundImage:
-                    "linear-gradient(rgba(153, 27, 27, 0.5), rgba(153, 27, 27, 1)), url('../../src/assets/casa-campo.jpg')"
+                    "linear-gradient(rgba(153, 27, 27, 0.5), rgba(153, 27, 27, 1)), url('/casa-campo.jpg')"
             }}>
                 <div className="container w-full mx-auto md:px-14">
                     <div className="py-12 px-4">

@@ -1,5 +1,5 @@
 import { CalendarPlus, LogIn, ShieldCheck, User } from 'lucide-react';
-import logo from '../../../assets/logo.png';
+import logo from '/logo.png';
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { UserContext } from '../../../context/UserContext';
