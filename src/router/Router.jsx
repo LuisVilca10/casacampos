@@ -1,58 +1,78 @@
 import { createBrowserRouter } from "react-router-dom";
-import App from "../components/templates/App";
-import Home from "../components/pages/Home";
-import AboutUs from "../components/pages/AboutUs";
-import ContactUs from "../components/pages/ContacTUs";
-import Login from "../components/pages/Login";
-import Admin from "../components/templates/Admin";
-import Register from "../components/pages/Register";
-import RememberPassword from "../components/pages/RememberPassword";
-import SearcCottage from "../components/pages/SearcCottage";
+import { lazy, Suspense } from "react";
 
+// Lazy load de componentes
+const App = lazy(() => import("../components/templates/App"));
+const Home = lazy(() => import("../components/pages/Home"));
+const AboutUs = lazy(() => import("../components/pages/AboutUs"));
+const ContactUs = lazy(() => import("../components/pages/ContacTUs"));
+const Login = lazy(() => import("../components/pages/Login"));
+const Register = lazy(() => import("../components/pages/Register"));
+const RememberPassword = lazy(() => import("../components/pages/RememberPassword"));
+const SearcCottage = lazy(() => import("../components/pages/SearcCottage"));
+const Admin = lazy(() => import("../components/templates/Admin"));
+const GuestRoute = lazy(() => import("./GuestRoute"));
+
+// Fallback simple
+const loader = <div className="text-center py-10 text-gray-500">Cargando...</div>;
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <App />,
+        element: <Suspense fallback={loader}><App /></Suspense>,
         children: [
             {
                 index: true,
-                element: <Home />
+                element: <Suspense fallback={loader}><Home /></Suspense>
             },
             {
                 path: "/nosotos",
-                element: <AboutUs />
+                element: <Suspense fallback={loader}><AboutUs /></Suspense>
             },
             {
                 path: "/contactanos",
-                element: <ContactUs />
+                element: <Suspense fallback={loader}><ContactUs /></Suspense>
             },
             {
                 path: "/SearchCottage",
-                element: <SearcCottage />
+                element: <Suspense fallback={loader}><SearcCottage /></Suspense>
             },
         ]
     },
     {
         path: "/login",
-        element: <Login />,
-
+        element: (
+            <Suspense fallback={loader}>
+                <GuestRoute>
+                    <Login />
+                </GuestRoute>
+            </Suspense>
+        )
     },
     {
         path: "/register",
-        element: <Register />,
-
+        element: (
+            <Suspense fallback={loader}>
+                <GuestRoute>
+                    <Register />
+                </GuestRoute>
+            </Suspense>
+        )
     },
     {
         path: "/rememberpassqord",
-        element: <RememberPassword />,
-
+        element: (
+            <Suspense fallback={loader}>
+                <GuestRoute>
+                    <RememberPassword />
+                </GuestRoute>
+            </Suspense>
+        )
     },
     {
         path: "/admin",
-        element: <Admin />,
-
+        element: <Suspense fallback={loader}><Admin /></Suspense>
     }
-])
+]);
 
-export default router
+export default router;

@@ -3,6 +3,13 @@ import { useState } from 'react';
 
 const Carousel = ({ images }) => {
     const [currentSlide, setCurrentSlide] = useState(0);
+    if (!images || images.length === 0) {
+        return (
+            <div className="w-full md:w-1/2 h-96 flex items-center justify-center bg-gray-100 rounded-2xl text-gray-500">
+                <span>No hay imágenes para mostrar</span>
+            </div>
+        );
+    }
 
     return (
         <div className="w-full md:w-1/2">

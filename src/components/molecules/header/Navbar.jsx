@@ -1,8 +1,26 @@
-import { LogIn, User } from 'lucide-react';
+import { CalendarPlus, LogIn, ShieldCheck, User } from 'lucide-react';
 import logo from '../../../assets/logo.png';
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import { UserContext } from '../../../context/UserContext';
+import axios from 'axios';
+import { API_URL } from '../../../constants/env';
 
 function NavBar() {
+    const nav = useNavigate()
+    const { userData, setUserData } = useContext(UserContext);
+
+    const handleLogout = () => {
+        axios.post(`${API_URL}auth/logout`, {}, { withCredentials: true })
+            .then(() => {
+                setUserData(null);
+                nav("/login");
+            })
+            .catch(err => {
+                console.error("Error al cerrar sesión", err);
+            });
+    };
+
     return (
         <>
             <div className="container flex justify-between items-center mx-auto py-5 2xl:-mt-5 -mt-5">
@@ -67,14 +85,42 @@ function NavBar() {
                 </div>
 
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className="border p-1 rounded-2xl border-gray-600"><User size={'28'} color='#000000' /></div>
+                    <div tabIndex={0} role="button" className={`${userData ? 'border border-gray-300 rounded-2xl' : 'border p-1 rounded-2xl border-gray-600'}`}
+                    >{userData ? (
+                        <img className="inline-block h-[40px] w-[40px] rounded-2xl object-cover object-center" src={userData.profile_photo_path} alt="" />
+                    )
+                        : (<User size={'28'} color='#000000' />)}</div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-                        <li><a href='/login'><User />Iniciar Sesión</a></li>
-                        <li className="border-r-2 border-gray-300 pr-4"></li>
-                        <li><Link to={"/register"} ><LogIn />Registrase</Link></li>
-                    </ul>
-                </div>
-            </div>
+                        {userData ?
+                            (<>
+                                <li><Link to={'/login'} > <User />Mi Perfil</Link></li>
+                                <li className="border-r-2 border-gray-300 pr-4"></li>
+
+                                {userData?.role === "Admin" ? (
+                                    <>
+                                        <li>
+                                            <Link to={"/admin"}>
+                                                <ShieldCheck className="w-6 h-6" />
+                                                Panel de Administrador
+                                            </Link>
+                                        </li>
+                                        <li className="border-r-2 border-gray-300 pr-4"></li>
+                                        <li><Link to={'/login'} > <CalendarPlus className="w-6 h-6" />Mis Reservas</Link></li>
+                                    </>
+                                ) : (<li><Link to={'/login'} > <CalendarPlus className="w-6 h-6" />Mis Reservas</Link></li>)}
+
+                                <li className="border-r-2 border-gray-300 pr-4"></li>
+                                <li><button onClick={handleLogout} type="button" ><LogIn />Cerrar Sesion</button ></li>
+                            </>)
+                            : (<>
+                                <li><Link to={'/login'}><User />Iniciar Sesión</Link></li>
+                                <li className="border-r-2 border-gray-300 pr-4"></li>
+                                <li><Link to={"/register"} ><LogIn />Registrase</Link></li>
+                            </>)}
+
+                    </ul >
+                </div >
+            </div >
         </>
     );
 }
