@@ -73,17 +73,21 @@ const SearcCottage = () => {
                 </div>
 
                 {/* Zona de contenido */}
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-5 gap-4">
                     {/* Filtros */}
                     <div className="col-span-1 border p-4 rounded-xl space-y-2">
-                        <div className="mt-5">
-                            <iframe
-                                title="Imagen"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.9153845853557!2d-71.5348554!3d-16.3772141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424b0046940e37%3A0x6dce74acc45296dc!2sCasa%20Campo%20Arequipa!5e1!3m2!1ses-419!2spe!4v1728063705471!5m2!1ses-419!2spe"
-                                className="rounded-lg border lg:w-[280px] lg:h-[200px] object-cover w-full"
-                                loading="lazy"
-                            ></iframe>
+                        <h2 className="font-bold">Ubicación:</h2>
+                        <div className="border-y pb-2">
+                            <div className="mt-2">
+                                <iframe
+                                    title="Imagen"
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.9153845853557!2d-71.5348554!3d-16.3772141!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91424b0046940e37%3A0x6dce74acc45296dc!2sCasa%20Campo%20Arequipa!5e1!3m2!1ses-419!2spe!4v1728063705471!5m2!1ses-419!2spe"
+                                    className="rounded-lg border lg:w-[215px] lg:h-[150px] object-cover w-full"
+                                    loading="lazy"
+                                ></iframe>
+                            </div>
                         </div>
+
                         <h2 className="font-bold">Filtrar por:</h2>
                         <div className="border-t pb-2">
                             <div className="font-semibold my-1">Paquetes</div>
@@ -126,7 +130,7 @@ const SearcCottage = () => {
                                 <div className="flex flex-col md:flex-row gap-y-4 gap-6 p-4 rounded-lg shadow-lg items-start border">
                                     <>
                                         <div className="carousel overflow-x-auto snap-x snap-mandatory scroll-smooth w-max">
-                                            <div className="carousel-item snap-center w-96 h-72 flex-shrink-0 relative">
+                                            <div className="carousel-item snap-center w-80 h-72 flex-shrink-0 relative">
                                                 <img
                                                     src={c.itemImageSrc}
                                                     alt={c.itemImageSrc}
@@ -152,37 +156,59 @@ const SearcCottage = () => {
                                         <div className="w-full md:w-1/2 flex flex-col justify-center pr-3 pl-2">
                                             <CottageRating details={c.details} />
                                             <h2 className="text-2xl font-bold mt-1">{c.nombre}</h2>
-                                            <div className="flex flex-wrap justify-start mt-3 gap-y-4">
-                                                <div className="w-1/3 flex gap-x-2 text-sm">
+                                            <div className="flex flex-wrap justify-start mt-3 gap-y-4 gap-x-1">
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
                                                     <Wifi size="20px" /> Cantidad de Camas: {c.camas}
                                                 </div>
-                                                <div className="w-1/3 flex gap-x-2 text-sm">
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
                                                     <CircleParking size="20px" /> Parking gratis
                                                 </div>
-                                                <div className="w-1/3 flex gap-x-2 text-sm">
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
                                                     <UsersRound size="20px" /> Habitaciones familiares
                                                 </div>
-                                                <div className="w-1/3 flex gap-x-2 text-sm">
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
                                                     <WavesLadder size="20px" /> Piscina Temperada
                                                 </div>
-                                                <div className="w-1/3 flex gap-x-2 text-sm">
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
                                                     <Volleyball size="20px" /> Juegos con Pelota
                                                 </div>
                                             </div>
                                             <p className="text-gray-600 mt-2">{c.descripcion}</p>
                                         </div>
 
-
                                     </>
-
-
-
                                 </div>
                             ))}
 
                         </div>
                     </div>
-
+                    {/* Paquete Recomendado */}
+                    <div className="col-span-1 border p-4 rounded-xl space-y-2">
+                        <h2 className="font-bold">Paquete: <span className="font-medium text-gray-700">Pareja</span></h2>
+                        <div className="border-y pb-2">
+                            <div className=" mt-2 w-full border overflow-hidden rounded-lg">
+                                <img
+                                    src="/icons/sapo.png"
+                                    className="object-cover w-full h-full"
+                                />
+                            </div>
+                        </div>
+                        <h2 className="font-bold">Incluye:</h2>
+                        <ul>
+                            <li>
+                                10 persoans
+                            </li>
+                             <li>
+                                4 camas
+                            </li>
+                             <li>
+                                2 habitaciones
+                            </li>
+                             <li>
+                                10 persoans
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </>
