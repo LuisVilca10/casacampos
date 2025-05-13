@@ -3,7 +3,6 @@ import { useContext, useState } from "react";
 import { Mail, Lock, Facebook, Eye, EyeOff } from 'lucide-react';
 import { Link, useNavigate } from "react-router-dom";
 import Authentication from "../templates/Authentication";
-import { deleteToken, setToken } from "../../helpers/auth";
 import { API_URL } from "../../constants/env";
 import Swal from "sweetalert2";
 import { UserContext } from "../../context/UserContext";
@@ -57,6 +56,11 @@ const Login = () => {
             });
 
     };
+
+    const handleGoogleLogin = () => {
+        window.location.href = "http://localhost:8000/api/auth/google-auth/redirect";
+    };
+
     return (
         <Authentication>
             <form autoComplete="on" onSubmit={handleLogin} className="space-y-4">
@@ -103,7 +107,7 @@ const Login = () => {
                     <Facebook className="w-5 h-5 text-white" />
                     Facebook
                 </button>
-                <button className="btn btn-outline flex-1 bg-white border border-white">
+                <button onClick={handleGoogleLogin} className="btn btn-outline flex-1 bg-white border border-white">
                     <img src="https://www.svgrepo.com/show/475656/google-color.svg" className="w-5 h-5" alt="Google" />
                     Google
                 </button>
