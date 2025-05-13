@@ -1,7 +1,7 @@
 import { ChevronDown, User, Plus, Minus } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
 
-function PeopleSelector() {
+function PeopleSelector({ setPeople }) {
     const [open, setOpen] = useState(false);
     const [adults, setAdults] = useState(2);
     const [children, setChildren] = useState(0);
@@ -27,7 +27,9 @@ function PeopleSelector() {
             document.removeEventListener('mousedown', handleClickOutside); // Cleanup en caso de que el componente se desmonte
         };
     }, []);
-
+    useEffect(() => {
+        setPeople(adults + children);  // Llama a la función del padre con el total
+    }, [adults, children, setPeople]);
     const handlePerson = (type, value) => {
         if (type === 'rooms') {
             if (value >= 0 && value <= 8) setRooms(value);

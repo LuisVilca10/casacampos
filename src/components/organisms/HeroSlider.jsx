@@ -2,16 +2,45 @@ import { Suspense, useState } from 'react';
 import DatePickerComponent from '../atoms/DatePickerComponent';
 import PeopleSelector from '../atoms/PeopleSelector';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { API_URL } from '../../constants/env';
 
 function HeroSlider() {
-    const [range, setRange] = useState([null, null]);
+    const [range, setRange] = useState([null, null]);  // Asegúrate de que esto sea un array
+    const [totalPeople, setTotalPeople] = useState(1);
 
+    const formattedStart = range[0] ? range[0].toISOString().split("T")[0] : null;
+    const formattedEnd = range[1] ? range[1].toISOString().split("T")[0] : null;
+
+
+    const handlePeopleChange = (total) => {
+        setTotalPeople(total);  // Actualizamos solo el total de personas
+    };
+
+    const data = {
+        check_in: formattedStart,
+        check_out: formattedEnd,
+        persons: totalPeople
+    };
+
+
+    const handleSearch = async (e) => {
+        axios
+            .post(`${API_URL}searchcottage`, data)
+            .then((resp) => {
+                console.log(resp)
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+
+    };
 
     return (
         <div className="relative overflow-hidden p-12 2xl:py-20 flex flex-col justify-center text-white px-4">
             {/* Imagen de fondo */}
             <img
-                src="portada.webp"
+                src="/portada.webp"
                 alt="Casa Campo Arequipa"
                 className="absolute inset-0 w-full h-full object-cover"
                 loading="eager"
@@ -28,18 +57,19 @@ function HeroSlider() {
                 </p>
                 <div className="shadow-lg md:p-4 pt-5 lg:flex flex-row items-center justify-center gap-4 w-full max-w-5xl grid">
                     <DatePickerComponent range={range} setRange={setRange} />
-                    <Suspense fallback={<div className="h-[56px] w-full bg-gray-100 animate-pulse rounded-md" />}>
-                        <PeopleSelector />
+                    <Suspense fallback={<div className="h-[96px] w-full bg-gray-100 animate-pulse rounded-md" />}>
+                        <PeopleSelector setPeople={handlePeopleChange} />
                     </Suspense>
 
-                    <Link to={"/SearchCottage"}>
+                
                         <button
                             type="button"
+                            onClick={handleSearch}
                             className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
                         >
                             Buscar
                         </button>
-                    </Link>
+      
                 </div>
             </div>
         </div>

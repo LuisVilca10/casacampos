@@ -10,7 +10,7 @@ function CallToActionSection() {
             }}>
                 <div className="container w-full mx-auto md:px-14">
                     <div className="py-12 px-4">
-                        <div className="flex md:flex-row flex-col justify-between items-center text-white md:gap-x-96 gap-4">
+                        <div className="flex md:flex-row flex-col justify-between items-center text-white xl:gap-x-96 gap-4">
                             <div className="flex md:flex-row flex-col gap-4 items-center text-5xl md:text-left text-center justify-center">
                                 <div className="w-12 h-12 sm:w-24 sm:h-24">
                                     <SearchCheck className="w-full h-full" strokeWidth={2.5} />
