@@ -37,7 +37,7 @@ function HeroSlider() {
     };
 
     return (
-        <div className="relative overflow-hidden p-12 2xl:py-20 flex flex-col justify-center text-white px-4">
+        <div className="relative overflow-hidden pb-24 pt-10 2xl:py-20 flex flex-col justify-center text-white px-4">
             {/* Imagen de fondo */}
             <img
                 src="/portada.webp"
