@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Banknote, CircleParking, UsersRound, Volleyball, WavesLadder, Wifi } from 'lucide-react';
-import Carousel from "../molecules/carousel/Carousel";
 import CottageRating from "../atoms/CottageRating";
 import DatePickerComponent from "../atoms/DatePickerComponent";
 import PeopleSelector from "../atoms/PeopleSelector";
 
 
 const SearcCottage = () => {
+    const [people, setPeople] = useState(1);
     const [range, setRange] = useState([null, null]);
     const paquetes = [
         {
@@ -66,7 +66,7 @@ const SearcCottage = () => {
             <div className="py-10 space-y-4 container mx-auto">
                 <div className="bg-red-700/60 rounded-2xl shadow-lg md:p-4 pt-5 lg:flex flex-row items-center justify-center gap-4 w-full max-w-5xl grid">
                     <DatePickerComponent range={range} setRange={setRange} />
-                    <PeopleSelector />
+                    <PeopleSelector setPeople={setPeople} />
                     <a to={"/SearchCottage"}>
                         <button type="button" className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Buscar</button>
                     </a>
@@ -198,13 +198,13 @@ const SearcCottage = () => {
                             <li>
                                 10 persoans
                             </li>
-                             <li>
+                            <li>
                                 4 camas
                             </li>
-                             <li>
+                            <li>
                                 2 habitaciones
                             </li>
-                             <li>
+                            <li>
                                 10 persoans
                             </li>
                         </ul>

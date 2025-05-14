@@ -1,7 +1,7 @@
 import { CalendarPlus, LogIn, ShieldCheck, User } from 'lucide-react';
 import logo from '/logo.png';
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import { useContext } from 'react';
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../../../context/UserContext';
 import axios from 'axios';
 import { API_URL } from '../../../constants/env';
@@ -9,6 +9,7 @@ import { API_URL } from '../../../constants/env';
 function NavBar() {
     const nav = useNavigate()
     const { userData, setUserData } = useContext(UserContext);
+    const location = useLocation();
 
     const handleLogout = () => {
         axios.post(`${API_URL}auth/logout`, {}, { withCredentials: true })
@@ -21,6 +22,13 @@ function NavBar() {
             });
     };
 
+    useEffect(() => {
+        // Cierra el drawer cuando cambia la ruta
+        const drawerCheckbox = document.getElementById('mobile-nav');
+        if (drawerCheckbox && drawerCheckbox.checked) {
+            drawerCheckbox.checked = false;
+        }
+    }, [location]);
     return (
         <>
             <div className="container md:flex justify-between items-center mx-auto py-5 2xl:-mt-5 -mt-5  hidden">
