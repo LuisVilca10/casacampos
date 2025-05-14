@@ -23,7 +23,7 @@ function NavBar() {
 
     return (
         <>
-            <div className="container flex justify-between items-center mx-auto py-5 2xl:-mt-5 -mt-5">
+            <div className="container md:flex justify-between items-center mx-auto py-5 2xl:-mt-5 -mt-5  hidden">
 
                 <div className="flex items-center gap-x-4">
                     <img className="h-auto sm:w-24" src={logo} alt="casacampo" />
@@ -121,6 +121,78 @@ function NavBar() {
                     </ul >
                 </div >
             </div >
+
+            {/* Drawer para móviles */}
+            <div className="drawer drawer-end md:hidden">
+                <input id="mobile-nav" type="checkbox" className="drawer-toggle" />
+
+                <div className="drawer-content flex justify-between items-center px-4 py-2">
+
+                    {/* Logo + Nombre */}
+                    <div className="flex items-center gap-2">
+                        <img src={logo} className="h-auto w-16" alt="logo" />
+                        <div className="leading-tight">
+                            <h1 className="text-base font-bold text-red-700">Casa Campo</h1>
+                            <span className="text-sm text-black -mt-1">Arequipa</span>
+                        </div>
+                    </div>
+
+                    {/* Ícono perfil + botón drawer */}
+                    <div className="flex items-center">
+                        {/* Perfil */}
+                        <div className={`${userData ? 'border border-gray-300 rounded-2xl' : 'border p-1 rounded-2xl border-gray-600'}`} >
+                            {userData ? (
+                                <img
+                                    className="h-8 w-8 rounded-full object-cover"
+                                    src={userData.profile_photo_path}
+                                    alt="perfil"
+                                />
+                            ) : (
+                                <User size={24} color="#000000" />
+                            )}
+                        </div>
+
+                        {/* Botón menú */}
+                        <label htmlFor="mobile-nav" className="btn btn-ghost btn-circle">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </label>
+                    </div>
+                </div>
+
+                {/* Drawer lateral */}
+                <div className="drawer-side z-50">
+                    <label htmlFor="mobile-nav" className="drawer-overlay"></label>
+                    <ul className="menu p-4 w-72 min-h-full bg-base-100 text-base-content space-y-2">
+                        <li><NavLink to="/">Inicio</NavLink></li>
+                        <li><NavLink to="/SearchCottage">Reservar</NavLink></li>
+                        <li><NavLink to="/nosotos">Nosotros</NavLink></li>
+                        <li><NavLink to="/contactanos">Contáctanos</NavLink></li>
+                        <li><NavLink to="/galeria">Galería</NavLink></li>
+                        <div className="divider" />
+                        {userData ? (
+                            <>
+                                <li><Link to="/login"><User />Mi Perfil</Link></li>
+                                {userData.role === "Admin" && (
+                                    <li><Link to="/admin"><ShieldCheck />Panel Admin</Link></li>
+                                )}
+                                <li><Link to="/login"><CalendarPlus />Mis Reservas</Link></li>
+                                <li><button onClick={handleLogout}><LogIn />Cerrar Sesión</button></li>
+                            </>
+                        ) : (
+                            <>
+                                <li><Link to="/login"><User />Iniciar Sesión</Link></li>
+                                <li><Link to="/register"><LogIn />Registrarse</Link></li>
+                            </>
+                        )}
+                    </ul>
+                </div>
+            </div>
+
+
         </>
     );
 }

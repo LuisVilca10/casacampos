@@ -4,8 +4,8 @@ function SuperHero() {
 
   return (
     <>
-      <div className="2xl:w-1/3 xl:w-2/5 md:w-1/2 mx-auto lg:flex md:flex md:justify-between bg-red-700 text-white items-center lg:justify-center text-[0.625rem] md:text-xs px-4 py-1 sm:flex-none rounded-b-2xl transition-all duration-500">
-        <ul className="flex space-x-4 justify-center flex-row">
+      <div className="2xl:w-1/3 xl:w-2/5 md:w-1/2 w-full mx-auto lg:flex md:flex md:justify-between bg-red-700 text-white items-center lg:justify-center text-[0.6rem] md:text-[0.625rem] md:text-xs md:px-4 px-2 py-1 sm:flex-none rounded-b-2xl transition-all duration-500">
+        <ul className="flex md:space-x-4 space-x-2 justify-center flex-row">
           <li className="flex items-center gap-x-1">
             <MapPinHouse size={"10px"} />
             Arequipa - Yanahuara

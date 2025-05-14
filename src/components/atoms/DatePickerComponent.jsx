@@ -19,16 +19,6 @@ const DatePickerComponent = ({ range, setRange }) => {
                 selectsRange
                 minDate={new Date()}
                 popperPlacement="bottom"
-                popperModifiers={[
-                    {
-                        name: 'preventOverflow',
-                        enabled: false,
-                    },
-                    {
-                        name: 'flip',
-                        enabled: false,
-                    },
-                ]}
                 dropdownMode="select"
                 showMonthDropdown
                 showYearDropdown

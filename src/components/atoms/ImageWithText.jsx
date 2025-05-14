@@ -1,8 +1,8 @@
 // src/atoms/ImageWithText.jsx
 const ImageWithText = ({ src, alt, title, text }) => (
-    <div className="flex space-x-4 p-9 items-center">
-        <div className="text-primary border-r p-4">
-            <div className="rounded-md h-44 w-56 text-center flex items-center justify-center">
+    <div className="flex space-x-4 md:p-9 items-center md:mt-0 mt-9">
+        <div className="text-primary border-r md:p-4">
+            <div className="rounded-md md:h-44 md:w-56 h-36 w-40 text-center flex items-center justify-center">
                 <img src={src} alt={alt} />
             </div>
         </div>

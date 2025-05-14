@@ -1,7 +1,7 @@
 // src/molecules/StoryDescription.jsx
 const StoryDescription = () => (
     <>
-        <h2 className="md:text-4xl font-bold flex justify-start text-2xl">Nuestra Historia</h2>
+        <h2 className="md:text-4xl font-bold flex md:justify-start justify-center  items-center text-2xl md:mt-0 mt-4">Nuestra Historia</h2>
         <div className="flex flex-wrap justify mt-4 gap-x-2">
             <div className="text-xl text-green-600">
                 Un refugio de tranquilidad y aventura.

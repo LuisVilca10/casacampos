@@ -8,18 +8,18 @@ const HistorySection = ({ images }) => (
     <div className="md:px-20 md:py-14 p-7 bg-gray-100">
         <div className="container md:px-10 mx-auto md:flex">
             <Carousel images={images} />
-            <div className="md:mx-7 w-1/2">
+            <div className="md:mx-7 md:w-1/2 w-full">
                 <StoryDescription />
 
                 <div className="flex justify-between mt-5">
-                    <div className="flex gap-x-11">
+                    <div className="flex flex-wrap gap-x-11">
                         <IconWithLabel Icon={Trees} label="Naturaleza" />
                         <IconWithLabel Icon={RockingChair} label="Descanso" />
                         <IconWithLabel Icon={MountainSnow} label="Aventura" />
                         <IconWithLabel Icon={Users} label="Familia" />
                     </div>
 
-                    <div className="flex justify-start mt-5">
+                    <div className="flex justify-start md:mt-5 mr-3">
                         <button className="btn text-red-700 border-red-400 hover:text-white hover:bg-red-700 w-auto">
                             Reservar Ya!
                         </button>
