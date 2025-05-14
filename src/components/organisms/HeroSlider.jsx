@@ -1,11 +1,12 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import DatePickerComponent from '../atoms/DatePickerComponent';
 import PeopleSelector from '../atoms/PeopleSelector';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { API_URL } from '../../constants/env';
 
-function HeroSlider() {
+const HeroSlider = ({ data }) => {
+    const reservedDates = data?.datereserva || [];
+    const [reservedRanges, setReservedRanges] = useState([]);
     const [range, setRange] = useState([null, null]);  // Asegúrate de que esto sea un array
     const [totalPeople, setTotalPeople] = useState(1);
 
@@ -17,7 +18,7 @@ function HeroSlider() {
         setTotalPeople(total);  // Actualizamos solo el total de personas
     };
 
-    const data = {
+    const formData = {
         check_in: formattedStart,
         check_out: formattedEnd,
         persons: totalPeople
@@ -26,7 +27,7 @@ function HeroSlider() {
 
     const handleSearch = async (e) => {
         axios
-            .post(`${API_URL}searchcottage`, data)
+            .post(`${API_URL}searchcottage`, formData)
             .then((resp) => {
                 console.log(resp)
             })
@@ -35,6 +36,17 @@ function HeroSlider() {
             });
 
     };
+
+    useEffect(() => {
+        if (reservedDates.length > 0) {
+            const ranges = reservedDates.map((reservation) => {
+                const startDate = new Date(reservation.date_start);
+                const endDate = new Date(reservation.date_end);
+                return [startDate, endDate];
+            });
+            setReservedRanges(ranges);
+        }
+    }, [reservedDates]);
 
     return (
         <div className="relative overflow-hidden pb-24 pt-10 2xl:py-20 flex flex-col justify-center text-white px-4">
@@ -56,20 +68,20 @@ function HeroSlider() {
                     Busca las fechas de disponibilidad y reserva!
                 </p>
                 <div className="shadow-lg md:p-4 pt-5 lg:flex flex-row items-center justify-center gap-4 w-full max-w-5xl grid">
-                    <DatePickerComponent range={range} setRange={setRange} />
+                    <DatePickerComponent range={range} setRange={setRange} reservedRanges={reservedRanges} />
                     <Suspense fallback={<div className="h-[96px] w-full bg-gray-100 animate-pulse rounded-md" />}>
                         <PeopleSelector setPeople={handlePeopleChange} />
                     </Suspense>
 
-                
-                        <button
-                            type="button"
-                            onClick={handleSearch}
-                            className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
-                        >
-                            Buscar
-                        </button>
-      
+
+                    <button
+                        type="button"
+                        onClick={handleSearch}
+                        className="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+                    >
+                        Buscar
+                    </button>
+
                 </div>
             </div>
         </div>

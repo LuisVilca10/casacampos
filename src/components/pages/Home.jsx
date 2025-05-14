@@ -1,3 +1,4 @@
+import useFetch from "../../hooks/useFetch";
 import CallToActionSection from "../organisms/CallToActionSection";
 import CottageCarrusel from "../organisms/CottageCarrusel";
 import HeroSlider from "../organisms/HeroSlider";
@@ -5,15 +6,16 @@ import ServicesSection from "../organisms/ServicesSection";
 import SobreNosotros from "../organisms/SobreNosotros";
 
 function Home() {
+    const { data, loading, error } = useFetch("home");
 
     return (
         <>
             {/* hero */}
-            <HeroSlider />
+            <HeroSlider data={data} />
             {/* Fin hero */}
             <div className='container mx-auto my-9'>
                 <h1 className='md:text-4xl text-2xl font-bold capitalize flex justify-center mb-10'>Las cabañas que te ofrecemos</h1>
-                <CottageCarrusel />
+                <CottageCarrusel data={data} loading={loading} error={error} />
             </div>
 
             {/* servicios */}
