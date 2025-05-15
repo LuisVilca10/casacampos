@@ -11,7 +11,7 @@ function Home() {
     return (
         <>
             {/* hero */}
-            <HeroSlider data={data} />
+            <HeroSlider />
             {/* Fin hero */}
             <div className='container mx-auto my-9'>
                 <h1 className='md:text-4xl text-2xl font-bold capitalize flex justify-center mb-10'>Las cabañas que te ofrecemos</h1>

@@ -3,11 +3,15 @@ import { Banknote, CircleParking, UsersRound, Volleyball, WavesLadder, Wifi } fr
 import CottageRating from "../atoms/CottageRating";
 import DatePickerComponent from "../atoms/DatePickerComponent";
 import PeopleSelector from "../atoms/PeopleSelector";
+import { useLocation } from "react-router-dom";
 
 
 const SearcCottage = () => {
-    const [people, setPeople] = useState(1);
-    const [range, setRange] = useState([null, null]);
+    const location = useLocation();
+    const { results, filters, range1 } = location?.state || {};
+
+    const [people, setPeople] = useState(filters.persons);
+    const [range, setRange] = useState([range1[0], range1[1]]);
     const paquetes = [
         {
             id: "packA",
@@ -54,8 +58,10 @@ const SearcCottage = () => {
         },
     ];
 
+   console.log(results);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [paqueteSeleccionado, setPaqueteSeleccionado] = useState(paquetes[0]);
+
 
     useEffect(() => {
         // Aquí puedes hacer lógica adicional si necesitas
@@ -124,9 +130,67 @@ const SearcCottage = () => {
                     </div>
 
                     {/* Resultados */}
-                    <div className="col-span-3 space-y-4">
+                    {/* <div className="col-span-3 space-y-4">
                         <div className="grid grid-cols-1 gap-4">
                             {paqueteSeleccionado.cabañas.map((c) => (
+                                <div className="flex flex-col md:flex-row gap-y-4 gap-6 p-4 rounded-lg shadow-lg items-start border">
+                                    <>
+                                        <div className="carousel overflow-x-auto snap-x snap-mandatory scroll-smooth w-max">
+                                            <div className="carousel-item snap-center w-80 h-72 flex-shrink-0 relative">
+                                                <img
+                                                    src={c.itemImageSrc}
+                                                    alt={c.itemImageSrc}
+                                                    className="w-full object-cover rounded-2xl"
+                                                />
+                                                <div className="absolute inset-0 flex items-center justify-between px-4">
+                                                    <button
+                                                        className="btn btn-circle"
+                                                        onClick={() => setCurrentSlide((prev) => (prev - 1 + c.itemImageSrc.length) % c.itemImageSrc.length)}
+                                                    >
+                                                        ❮
+                                                    </button>
+                                                    <button
+                                                        className="btn btn-circle"
+                                                        onClick={() => setCurrentSlide((prev) => (prev + 1) % c.itemImageSrc.length)}
+                                                    >
+                                                        ❯
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="w-full md:w-1/2 flex flex-col justify-center pr-3 pl-2">
+                                            <CottageRating details={c.details} />
+                                            <h2 className="text-2xl font-bold mt-1">{c.nombre}</h2>
+                                            <div className="flex flex-wrap justify-start mt-3 gap-y-4 gap-x-1">
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
+                                                    <Wifi size="20px" /> Cantidad de Camas: {c.camas}
+                                                </div>
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
+                                                    <CircleParking size="20px" /> Parking gratis
+                                                </div>
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
+                                                    <UsersRound size="20px" /> Habitaciones familiares
+                                                </div>
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
+                                                    <WavesLadder size="20px" /> Piscina Temperada
+                                                </div>
+                                                <div className="w-1/2 flex gap-x-2 text-sm">
+                                                    <Volleyball size="20px" /> Juegos con Pelota
+                                                </div>
+                                            </div>
+                                            <p className="text-gray-600 mt-2">{c.descripcion}</p>
+                                        </div>
+
+                                    </>
+                                </div>
+                            ))}
+
+                        </div>
+                    </div> */}
+                    <div className="col-span-3 space-y-4">
+                        <div className="grid grid-cols-1 gap-4">
+                            {results.data.cottages.map((c) => (
                                 <div className="flex flex-col md:flex-row gap-y-4 gap-6 p-4 rounded-lg shadow-lg items-start border">
                                     <>
                                         <div className="carousel overflow-x-auto snap-x snap-mandatory scroll-smooth w-max">
@@ -184,11 +248,12 @@ const SearcCottage = () => {
                     </div>
                     {/* Paquete Recomendado */}
                     <div className="col-span-1 border p-4 rounded-xl space-y-2">
-                        <h2 className="font-bold">Paquete: <span className="font-medium text-gray-700">Pareja</span></h2>
+                        <h2 className="font-bold">Paquete: <span className="font-medium text-gray-700">{results.data.name}</span></h2>
                         <div className="border-y pb-2">
                             <div className=" mt-2 w-full border overflow-hidden rounded-lg">
                                 <img
-                                    src="/icons/sapo.png"
+                                    // src={results.data.img ? results.data.img : ('/icons/sapo.png')}
+                                    src={results.data.img ? ('/icons/sapo.png') : ('/icons/sapo.png')}
                                     className="object-cover w-full h-full"
                                 />
                             </div>
@@ -196,10 +261,10 @@ const SearcCottage = () => {
                         <h2 className="font-bold">Incluye:</h2>
                         <ul>
                             <li>
-                                10 persoans
+                                Maximo de Personas: {results.data.max_person} Personas
                             </li>
                             <li>
-                                4 camas
+                                Numero de Cabañas:{results.data.max_cottages_selectable} Seleccionable
                             </li>
                             <li>
                                 2 habitaciones

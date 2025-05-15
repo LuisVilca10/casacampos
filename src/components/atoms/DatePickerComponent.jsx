@@ -7,9 +7,8 @@ import { isWithinInterval } from "date-fns";
 registerLocale('es', es);
 
 const DatePickerComponent = ({ range, setRange, reservedRanges }) => {
-    console.log(reservedRanges);
     const [startDate, endDate] = range;
-
+ 
     return (
         <div className="w-full relative">
             <DatePicker
@@ -25,12 +24,11 @@ const DatePickerComponent = ({ range, setRange, reservedRanges }) => {
                 showYearDropdown
                 locale="es"
                 dayClassName={(date) => {
-                    const isReserved = reservedRanges.some(([start, end]) =>
+                    const isReserved = reservedRanges?.some(([start, end]) =>
                         isWithinInterval(date, { start, end })
                     );
                     return isReserved ? "bg-red-400 text-white rounded-full" : undefined;
                 }}
-               
                 calendarIconClassName="border"
                 dateFormat="dd 'de' MMMM"
                 withPortal
