@@ -3,7 +3,6 @@ import DatePicker from 'react-datepicker';
 import { registerLocale } from 'react-datepicker';
 import es from 'date-fns/locale/es';
 import 'react-datepicker/dist/react-datepicker.css';
-import { isWithinInterval } from "date-fns";
 registerLocale('es', es);
 
 const DatePickerComponent = ({ range, setRange, reservedRanges }) => {
@@ -23,12 +22,6 @@ const DatePickerComponent = ({ range, setRange, reservedRanges }) => {
                 showMonthDropdown
                 showYearDropdown
                 locale="es"
-                dayClassName={(date) => {
-                    const isReserved = reservedRanges?.some(([start, end]) =>
-                        isWithinInterval(date, { start, end })
-                    );
-                    return isReserved ? "bg-red-400 text-white rounded-full" : undefined;
-                }}
                 calendarIconClassName="border"
                 dateFormat="dd 'de' MMMM"
                 withPortal
