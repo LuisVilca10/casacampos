@@ -5,8 +5,8 @@ import axios from 'axios';
 import { API_URL } from '../../constants/env';
 
 const HeroSlider = ({ data }) => {
-    const reservedDates = data?.datereserva || [];
-    const [reservedRanges, setReservedRanges] = useState([]);
+    // const reservedDates = data?.datereserva || [];
+    // const [reservedRanges, setReservedRanges] = useState([]);
     const [range, setRange] = useState([null, null]);  // Asegúrate de que esto sea un array
     const [totalPeople, setTotalPeople] = useState(1);
 
@@ -23,7 +23,7 @@ const HeroSlider = ({ data }) => {
         check_out: formattedEnd,
         persons: totalPeople
     };
-
+    console.log(formData)
 
     const handleSearch = async (e) => {
         axios
@@ -37,16 +37,16 @@ const HeroSlider = ({ data }) => {
 
     };
 
-    useEffect(() => {
-        if (reservedDates.length > 0) {
-            const ranges = reservedDates.map((reservation) => {
-                const startDate = new Date(reservation.date_start);
-                const endDate = new Date(reservation.date_end);
-                return [startDate, endDate];
-            });
-            setReservedRanges(ranges);
-        }
-    }, [reservedDates]);
+    // useEffect(() => {
+    //     if (reservedDates.length > 0) {
+    //         const ranges = reservedDates.map((reservation) => {
+    //             const startDate = new Date(reservation.date_start);
+    //             const endDate = new Date(reservation.date_end);
+    //             return [startDate, endDate];
+    //         });
+    //         setReservedRanges(ranges);
+    //     }
+    // }, [reservedDates]);
 
     return (
         <div className="relative overflow-hidden pb-24 pt-10 2xl:py-20 flex flex-col justify-center text-white px-4">
@@ -68,7 +68,7 @@ const HeroSlider = ({ data }) => {
                     Busca las fechas de disponibilidad y reserva!
                 </p>
                 <div className="shadow-lg md:p-4 pt-5 lg:flex flex-row items-center justify-center gap-4 w-full max-w-5xl grid">
-                    <DatePickerComponent range={range} setRange={setRange} reservedRanges={reservedRanges} />
+                    <DatePickerComponent range={range} setRange={setRange} />
                     <Suspense fallback={<div className="h-[96px] w-full bg-gray-100 animate-pulse rounded-md" />}>
                         <PeopleSelector setPeople={handlePeopleChange} />
                     </Suspense>
