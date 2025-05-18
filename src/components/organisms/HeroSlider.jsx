@@ -1,8 +1,9 @@
-import { Suspense, useEffect, useState } from 'react';
+import { Suspense, useState } from 'react';
 import DatePickerComponent from '../atoms/DatePickerComponent';
 import PeopleSelector from '../atoms/PeopleSelector';
 import axios from 'axios';
 import { API_URL } from '../../constants/env';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSlider = ({ data }) => {
     // const reservedDates = data?.datereserva || [];
@@ -12,7 +13,7 @@ const HeroSlider = ({ data }) => {
 
     const formattedStart = range[0] ? range[0].toISOString().split("T")[0] : null;
     const formattedEnd = range[1] ? range[1].toISOString().split("T")[0] : null;
-
+    const nav = useNavigate();
 
     const handlePeopleChange = (total) => {
         setTotalPeople(total);  // Actualizamos solo el total de personas
@@ -30,6 +31,7 @@ const HeroSlider = ({ data }) => {
             .post(`${API_URL}searchcottage`, formData)
             .then((resp) => {
                 console.log(resp)
+                nav("/SearchCottage", { state: { results: resp.data, filters: formData, range1:range } });
             })
             .catch((err) => {
                 console.error(err);
@@ -37,6 +39,16 @@ const HeroSlider = ({ data }) => {
 
     };
 
+    // useEffect(() => {
+    //     if (reservedDates.length > 0) {
+    //         const ranges = reservedDates.map((reservation) => {
+    //             const startDate = new Date(reservation.date_start);
+    //             const endDate = new Date(reservation.date_end);
+    //             return [startDate, endDate];
+    //         });
+    //         setReservedRanges(ranges);
+    //     }
+    // }, [reservedDates]);
     // useEffect(() => {
     //     if (reservedDates.length > 0) {
     //         const ranges = reservedDates.map((reservation) => {
