@@ -9,9 +9,9 @@ import useFetch from "../../hooks/useFetch";
 
 const SearcCottage = () => {
     const location = useLocation();
-    const { results, filters, range1 } = location?.state || {};
     const { data, loading, error } = useFetch("packages");
-    console.log(data?.packeges)
+    const { results, filters, range1, suggestions } = location?.state || {};
+    console.log(results);
     const [people, setPeople] = useState(filters?.persons ? filters?.persons : 1);
     const [range, setRange] = useState(
         Array.isArray(range1) ? [range1[0] ?? null, range1[1] ?? null] : [null, null]
@@ -20,17 +20,31 @@ const SearcCottage = () => {
         results?.data?.cottages?.length > 0
             ? results.data.cottages
             : data?.packeges.cottages || [];
-
-
-    console.log(cottagesToRender)
-
-
     const [currentSlide, setCurrentSlide] = useState(0);
     const [paqueteSeleccionado, setPaqueteSeleccionado] = useState(null);
-    console.log(paqueteSeleccionado)
+
 
     useEffect(() => {
         if (data?.packeges?.length > 0) {
+            const idPaqueteEnviado = results?.id;
+            const idfechaEnviado = suggestions?.package_name.id;
+
+            if (idPaqueteEnviado) {
+                const paqueteEncontrado = data.packeges.find(p => p.id === idPaqueteEnviado);
+                if (paqueteEncontrado) {
+                    setPaqueteSeleccionado(paqueteEncontrado);
+                    return; // Evita sobrescribir abajo
+                }
+            }
+
+            if (idfechaEnviado) {
+                const paqueteEncontrado = data.packeges.find(p => p.id === idfechaEnviado); // ← Corrección aquí
+                if (paqueteEncontrado) {
+                    setPaqueteSeleccionado(paqueteEncontrado);
+                    return; // Evita sobrescribir abajo
+                }
+            }
+
             setPaqueteSeleccionado(data.packeges[0]);
         }
     }, [data]);
@@ -66,6 +80,7 @@ const SearcCottage = () => {
                         <div className="border-t pb-2">
                             <div className="font-semibold my-1">Paquetes</div>
                             <select
+                                value={paqueteSeleccionado?.id ?? ""}
                                 onChange={(e) => {
                                     const seleccionado = data?.packeges?.find((p) => String(p.id) === e.target.value);
                                     console.log("hola")
@@ -109,59 +124,69 @@ const SearcCottage = () => {
                     {/* Resultados */}
                     <div className="col-span-3 space-y-4">
                         <div className="grid grid-cols-1 gap-4">
-                            {paqueteSeleccionado?.cottages?.map((c) => (
-                                <div className="flex border-green-700 items-center flex-col md:flex-row gap-y-4 gap-6 p-4 rounded-lg shadow-lg md:items-start border">
-                                    <>
-                                        <div className="carousel overflow-x-auto snap-x snap-mandatory scroll-smooth w-max">
-                                            <div className="carousel-item snap-center md:w-80 md:h-72 h-72 w-80 flex-shrink-0 relative">
-                                                <img
-                                                    src={c.itemImageSrc}
-                                                    alt={c.itemImageSrc}
-                                                    className="w-full object-cover rounded-2xl"
-                                                />
-                                                <div className="absolute inset-0 flex items-center justify-between px-4">
-                                                    <button
-                                                        className="btn btn-circle"
-                                                        onClick={() => setCurrentSlide((prev) => (prev - 1 + c.itemImageSrc.length) % c.itemImageSrc.length)}
-                                                    >
-                                                        ❮
-                                                    </button>
-                                                    <button
-                                                        className="btn btn-circle"
-                                                        onClick={() => setCurrentSlide((prev) => (prev + 1) % c.itemImageSrc.length)}
-                                                    >
-                                                        ❯
-                                                    </button>
+                            {paqueteSeleccionado?.cottages
+                                ?.filter((c) =>
+                                    results?.cottages?.some((rc) => rc.id === c.id)
+                                )
+                                .map((c) => (
+                                    <div className="flex border-green-700 items-center flex-col md:flex-row gap-y-4 gap-6 p-4 rounded-lg shadow-lg md:items-start border">
+                                        <>
+                                            <div className="carousel overflow-x-auto snap-x snap-mandatory scroll-smooth w-max">
+                                                <div className="carousel-item snap-center md:w-80 md:h-72 h-72 w-80 flex-shrink-0 relative">
+                                                    <img
+                                                        src={c.itemImageSrc}
+                                                        alt={c.itemImageSrc}
+                                                        className="w-full object-cover rounded-2xl"
+                                                    />
+                                                    <div className="absolute inset-0 flex items-center justify-between px-4">
+                                                        <button
+                                                            className="btn btn-circle"
+                                                            onClick={() =>
+                                                                setCurrentSlide(
+                                                                    (prev) => (prev - 1 + c.itemImageSrc.length) % c.itemImageSrc.length
+                                                                )
+                                                            }
+                                                        >
+                                                            ❮
+                                                        </button>
+                                                        <button
+                                                            className="btn btn-circle"
+                                                            onClick={() =>
+                                                                setCurrentSlide(
+                                                                    (prev) => (prev + 1) % c.itemImageSrc.length
+                                                                )
+                                                            }
+                                                        >
+                                                            ❯
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <div className="w-full md:w-1/2 flex flex-col justify-center pr-3 pl-2">
-                                            <CottageRating details={c.details} />
-                                            <h2 className="text-2xl font-bold mt-1">{c.nombre}</h2>
-                                            <div className="flex flex-wrap justify-start mt-3 gap-y-4 gap-x-1">
-                                                <div className="w-1/2 flex gap-x-2 text-sm">
-                                                    <Wifi size="20px" /> Cantidad de Camas: {c.camas}
-                                                </div>
-                                                <div className="w-1/2 flex gap-x-2 text-sm">
-                                                    <CircleParking size="20px" /> Parking gratis
-                                                </div>
-                                                <div className="w-1/2 flex gap-x-2 text-sm">
-                                                    <UsersRound size="20px" /> Habitaciones familiares
-                                                </div>
-                                                <div className="w-1/2 flex gap-x-2 text-sm">
-                                                    <WavesLadder size="20px" /> Piscina Temperada
-                                                </div>
-                                                <div className="w-1/2 flex gap-x-2 text-sm">
-                                                    <Volleyball size="20px" /> Juegos con Pelota
+                                            <div className="w-full md:w-1/2 flex flex-col justify-center pr-3 pl-2">
+                                                <CottageRating details={c.details} />
+                                                <h2 className="text-2xl font-bold mt-1">{c.name_cottage}</h2>
+                                                <div className="flex flex-wrap justify-start mt-3 gap-y-4 gap-x-1">
+                                                    <div className="w-1/2 flex gap-x-2 text-sm">
+                                                        <Wifi size="20px" /> Cantidad de Camas: {c.beds}
+                                                    </div>
+                                                    <div className="w-1/2 flex gap-x-2 text-sm">
+                                                        <CircleParking size="20px" /> Parking gratis
+                                                    </div>
+                                                    <div className="w-1/2 flex gap-x-2 text-sm">
+                                                        <UsersRound size="20px" /> Habitaciones familiares
+                                                    </div>
+                                                    <div className="w-1/2 flex gap-x-2 text-sm">
+                                                        <WavesLadder size="20px" /> Piscina Temperada
+                                                    </div>
+                                                    <div className="w-1/2 flex gap-x-2 text-sm">
+                                                        <Volleyball size="20px" /> Juegos con Pelota
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <p className="text-gray-600 mt-2">{c.descripcion}</p>
-                                        </div>
-
-                                    </>
-                                </div>
-                            ))}
+                                        </>
+                                    </div>
+                                ))}
                         </div>
                     </div>
                     {/* <div className="col-span-3 space-y-4">

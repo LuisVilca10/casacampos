@@ -24,14 +24,14 @@ const HeroSlider = ({ data }) => {
         check_out: formattedEnd,
         persons: totalPeople
     };
-    console.log(formData)
+    
 
     const handleSearch = async (e) => {
         axios
             .post(`${API_URL}searchcottage`, formData)
             .then((resp) => {
                 console.log(resp)
-                // nav("/SearchCottage", { state: { results: resp.data, filters: formData, range1:range } });
+                nav("/SearchCottage", { state: { results: resp.data.data, filters: formData, range1:range, suggestions: resp.data.suggestions} });
             })
             .catch((err) => {
                 console.error(err);

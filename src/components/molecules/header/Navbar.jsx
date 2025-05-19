@@ -32,16 +32,18 @@ function NavBar() {
     return (
         <>
             <div className="container md:flex justify-between items-center mx-auto py-5 2xl:-mt-5 -mt-5  hidden">
-
-                <div className="flex items-center gap-x-4">
-                    <img className="h-auto sm:w-24" src={logo} alt="casacampo" />
-                    <div className="hidden sm:block cursor-pointer">
-                        <h1 className="sm:text-xl font-bold flex flex-col text-red-700">
-                            Casa Campo
-                            <span className="text-xs font-medium sm:text-lg text-black -mt-1">Arequipa</span>
-                        </h1>
+                <Link to={"/"}>
+                    <div className="flex items-center gap-x-4">
+                        <img className="h-auto sm:w-24" src={logo} alt="casacampo" />
+                        <div className="hidden sm:block cursor-pointer">
+                            <h1 className="sm:text-xl font-bold flex flex-col text-red-700">
+                                Casa Campo
+                                <span className="text-xs font-medium sm:text-lg text-black -mt-1">Arequipa</span>
+                            </h1>
+                        </div>
                     </div>
-                </div>
+                </Link>
+
 
 
                 <div className="hidden sm:flex justify-center text-sm -ml-40 mt-4 text-black">
@@ -135,15 +137,17 @@ function NavBar() {
                 <input id="mobile-nav" type="checkbox" className="drawer-toggle" />
 
                 <div className="drawer-content flex justify-between items-center px-4 py-2">
-
-                    {/* Logo + Nombre */}
-                    <div className="flex items-center gap-2">
-                        <img src={logo} className="h-auto w-16" alt="logo" />
-                        <div className="leading-tight">
-                            <h1 className="text-base font-bold text-red-700">Casa Campo</h1>
-                            <span className="text-sm text-black -mt-1">Arequipa</span>
+                    <Link to={"/"}>
+                        {/* Logo + Nombre */}
+                        <div className="flex items-center gap-2">
+                            <img src={logo} className="h-auto w-16" alt="logo" />
+                            <div className="leading-tight">
+                                <h1 className="text-base font-bold text-red-700">Casa Campo</h1>
+                                <span className="text-sm text-black -mt-1">Arequipa</span>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
+
 
                     {/* Ícono perfil + botón drawer */}
                     <div className="flex items-center">
