@@ -84,14 +84,14 @@ const SearcCottage = () => {
                         </div>
                         <div className="border-t pb-2">
                             <div className="font-semibold my-1">Precio por noche Lunes - Jueves</div>
-                            <label className="input  input-primary">
+                            <label className="input w-full input-primary">
                                 <Banknote />
                                 <input type="number" className="grow validator" min="1" readOnly value={paqueteSeleccionado ? paqueteSeleccionado.price_monday_to_thursday : ''} />
                             </label>
                         </div>
                         <div className="border-t pb-2">
                             <div className="font-semibold my-1">Precio por noche Viernes - Jueves</div>
-                            <label className="input  input-primary">
+                            <label className="input  w-full  input-primary">
                                 <Banknote />
                                 <input type="number" className="grow validator" min="1" readOnly value={paqueteSeleccionado ? paqueteSeleccionado.price_friday_to_sunday : ''} />
                             </label>
@@ -110,10 +110,10 @@ const SearcCottage = () => {
                     <div className="col-span-3 space-y-4">
                         <div className="grid grid-cols-1 gap-4">
                             {paqueteSeleccionado?.cottages?.map((c) => (
-                                <div className="flex flex-col md:flex-row gap-y-4 gap-6 p-4 rounded-lg shadow-lg items-start border">
+                                <div className="flex border-green-700 items-center flex-col md:flex-row gap-y-4 gap-6 p-4 rounded-lg shadow-lg md:items-start border">
                                     <>
                                         <div className="carousel overflow-x-auto snap-x snap-mandatory scroll-smooth w-max">
-                                            <div className="carousel-item snap-center w-80 h-72 flex-shrink-0 relative">
+                                            <div className="carousel-item snap-center md:w-80 md:h-72 h-72 w-80 flex-shrink-0 relative">
                                                 <img
                                                     src={c.itemImageSrc}
                                                     alt={c.itemImageSrc}

@@ -31,7 +31,7 @@ const HeroSlider = ({ data }) => {
             .post(`${API_URL}searchcottage`, formData)
             .then((resp) => {
                 console.log(resp)
-                nav("/SearchCottage", { state: { results: resp.data, filters: formData, range1:range } });
+                // nav("/SearchCottage", { state: { results: resp.data, filters: formData, range1:range } });
             })
             .catch((err) => {
                 console.error(err);
