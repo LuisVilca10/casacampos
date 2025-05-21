@@ -9,6 +9,7 @@ import { UserContext } from "../../context/UserContext";
 
 const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const [loading, setLoading] = useState(false);
     const nav = useNavigate();
     const { setUserData } = useContext(UserContext)
     const [error, setError] = useState();
@@ -16,49 +17,43 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault()
         setError()
+        setLoading(true);
         const data = {
             email: e.target.email.value,
             password: e.target.password.value,
         }
-
-        axios
-            .post(`${API_URL}auth/login`, data, {
+        try {
+            const resp = await axios.post(`${API_URL}auth/login`, data, {
                 withCredentials: true
-            })
-            .then((resp) => {
-                setUserData(resp.data.user);
-                console.log(resp.data.user);
-                nav("/");
-
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: "top-end",
-                    showConfirmButton: false,
-                    timer: 1000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.onmouseenter = Swal.stopTimer;
-                        toast.onmouseleave = Swal.resumeTimer;
-                    },
-                });
-
-                Toast.fire({
-                    icon: "success",
-                    title: "Acceso Autorizado",
-                });
-            })
-            .catch((err) => {
-                if (err.response && err.response.status === 401) {
-                    deleteToken(); // solo si aún usas token en memoria
-                }
-                console.error(err);
-                setError(err);
             });
+
+            setUserData(resp.data.user);
+            nav("/");
+
+            Swal.fire({
+                toast: true,
+                position: "top-end",
+                icon: "success",
+                title: "Acceso Autorizado",
+                showConfirmButton: false,
+                timer: 1000,
+                timerProgressBar: true,
+            });
+
+        } catch (err) {
+            if (err.response && err.response.status === 401) {
+                // deleteToken(); // Solo si usas tokens en memoria
+            }
+            setError(err);
+            console.error(err);
+        } finally {
+            setLoading(false);  // <-- Desbloquea el botón
+        }
 
     };
 
     const handleGoogleLogin = () => {
-        window.location.href = "http://localhost:8000/api/auth/google-auth/redirect";
+        window.location.href = "http://localhost:8000/google-auth/redirect";
     };
 
     return (
@@ -95,8 +90,13 @@ const Login = () => {
                     <Link to={"/rememberpassqord"} className="text-white border-b">¿Olvidaste tu contraseña?</Link>
                 </div>
 
-                <button type="submit" className="btn btn-block bg-green-700 hover:bg-green-800 text-white border border-green-700">
-                    Iniciar sesión
+                <button
+                    type="submit"
+                    // <-- Deshabilita el botón si está cargando
+                    className={`btn btn-block text-white border border-green-700 
+                        ${loading ? "bg-green-600 cursor-not-allowed" : "bg-green-700 hover:bg-green-800"}`}
+                >
+                    {loading ? "Cargando..." : "Iniciar sesión"}
                 </button>
             </form>
 
