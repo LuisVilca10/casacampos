@@ -9,7 +9,7 @@ import { API_URL } from '../../../constants/env';
 function NavBar() {
     const nav = useNavigate()
     const { userData, setUserData } = useContext(UserContext);
-    console.log(userData);
+    
     const location = useLocation();
 
     const handleLogout = () => {
