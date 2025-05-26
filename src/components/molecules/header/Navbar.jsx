@@ -9,6 +9,7 @@ import { API_URL } from '../../../constants/env';
 function NavBar() {
     const nav = useNavigate()
     const { userData, setUserData } = useContext(UserContext);
+    console.log(userData);
     const location = useLocation();
 
     const handleLogout = () => {
@@ -46,7 +47,7 @@ function NavBar() {
 
 
 
-                <div className="hidden sm:flex justify-center text-sm -ml-40 mt-4 text-black">
+                <div className="hidden sm:flex justify-center text-sm -ml-36 mt-4 text-black">
                     <ul className="flex divide-x  md:opacity-100 duration-300">
                         <li
                             className="cursor-pointer px-2 rounded hover:bg-gray-200"
@@ -95,11 +96,21 @@ function NavBar() {
                 </div>
 
                 <div className="dropdown dropdown-end">
-                    <div tabIndex={0} role="button" className={`${userData ? 'border border-gray-300 rounded-2xl' : 'border p-1 rounded-2xl border-gray-600'}`}
-                    >{userData ? (
-                        <img className="inline-block h-[40px] w-[40px] rounded-2xl object-cover object-center" src={userData.profile_photo_path} alt="" />
-                    )
-                        : (<User size={'28'} color='#000000' />)}</div>
+                    <div className='flex justify-center items-center'>
+                        {userData ? (<div className='mr-2 text-sm'>
+                            <div>{userData.name}</div>
+                            <div>{userData.lastname}</div>
+                        </div>) : (<div className='mr-2 text-sm'>
+                            <div>Iniciar</div>
+                            <div>Sesión</div>
+                        </div>)}
+                        <div tabIndex={0} role="button" className={`${userData ? 'border border-gray-300 rounded-2xl' : 'border p-1 rounded-2xl border-gray-600'}`}
+                        >
+                            {userData ? (
+                                <img className="inline-block h-[40px] w-[40px] rounded-2xl object-cover object-center" src={userData.profile_photo_path} alt="" />
+                            )
+                                : (<User size={'28'} color='#000000' />)}</div>
+                    </div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
                         {userData ?
                             (<>
@@ -133,7 +144,7 @@ function NavBar() {
             </div >
 
             {/* Drawer para móviles */}
-            <div className="drawer drawer-end md:hidden">
+            < div className="drawer drawer-end md:hidden" >
                 <input id="mobile-nav" type="checkbox" className="drawer-toggle" />
 
                 <div className="drawer-content flex justify-between items-center px-4 py-2">
@@ -202,7 +213,7 @@ function NavBar() {
                         )}
                     </ul>
                 </div>
-            </div>
+            </div >
 
 
         </>

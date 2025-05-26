@@ -5,7 +5,7 @@ import { API_URL } from "../constants/env"
 const UserContext = createContext()
 
 const UserProvider = ({ children }) => {
-    const [userData, setUserData] = useState()
+    const [userData, setUserData] = useState();
 
     useEffect(() => {
         axios
