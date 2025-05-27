@@ -35,8 +35,8 @@ function NavBar() {
             <div className="navbar bg-base-100 shadow-md border-b-4 rounded-b-2xl border-red-700 sticky top-0 z-30  bg-white w-full px-4 py-5">
                 <div className="flex justify-between w-full">
                     <div className="flex w-full gap-x-2">
-                        <label htmlFor="my-drawer-2" className="btn drawer-button ">
-                            <AlignLeft />
+                        <label htmlFor="my-drawer-2" className="btn drawer-button text-[#B4B8BF] hover:text-[#344054] p-3">
+                            <AlignLeft size={"20px"}/>
                         </label>
                         <div className="flex items-center w-full max-w-xl relative">
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={10} />

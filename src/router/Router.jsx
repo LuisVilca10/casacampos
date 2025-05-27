@@ -1,8 +1,13 @@
+
 import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loader from "../components/atoms/Loader";
 import TableCottage from "../components/pages/admin/Tables/TableCottage";
 import Dashboard from "../components/pages/admin/Dashboard";
+import MyProfile from "../components/pages/admin/MyProfile";
+import TableUsers from "../components/pages/admin/Tables/TableUsers";
+import TablePackages from "../components/pages/admin/Tables/TablePackages";
+import TableReservations from "../components/pages/admin/Tables/TableReservations";
 
 // Lazy load de componentes
 const App = lazy(() => import("../components/templates/App"));
@@ -83,6 +88,22 @@ const router = createBrowserRouter([
             {
                 path: "cottage",
                 element: <Suspense fallback={loader}><TableCottage /></Suspense>
+            },
+            {
+                path: "profile",
+                element: <Suspense fallback={loader}><MyProfile /></Suspense>
+            },
+            {
+                path: "users",
+                element: <Suspense fallback={loader}><TableUsers /></Suspense>
+            },
+            {
+                path: "packages",
+                element: <Suspense fallback={loader}><TablePackages /></Suspense>
+            },
+            {
+                path: "reservations",
+                element: <Suspense fallback={loader}><TableReservations /></Suspense>
             },
         ]
     }

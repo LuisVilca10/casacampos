@@ -58,13 +58,13 @@ const Admin = () => {
           <div className="mb-4">
             <div className="text-xs font-semibold text-gray-500 uppercase mb-2">Autentificación</div>
             <li>
-              <Link to="/profile">
+              <Link to="/admin/profile">
                 <User className="w-4 h-4 mr-2" />
                 Mi Perfil
               </Link>
             </li>
             <li>
-              <Link to="/profile">
+              <Link to="/admin/users">
 
                 <UsersRound className="w-4 h-4 mr-2" />
                 Usuarios
@@ -81,13 +81,13 @@ const Admin = () => {
               </Link>
             </li>
             <li>
-              <Link to="/admin/package">
+              <Link to="/admin/packages">
                 <PackageOpen className="w-4 h-4 mr-2" />
                 Paquetes
               </Link>
             </li>
             <li>
-              <Link to="/admin/package">
+              <Link to="/admin/reservations">
                 <Calendar className="w-4 h-4 mr-2" />
                 Reservas
               </Link>
