@@ -1,6 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import Loader from "../components/atoms/Loader";
+import TableCottage from "../components/pages/admin/Tables/TableCottage";
+import Dashboard from "../components/pages/admin/Dashboard";
 
 // Lazy load de componentes
 const App = lazy(() => import("../components/templates/App"));
@@ -15,7 +17,7 @@ const Admin = lazy(() => import("../components/templates/Admin"));
 const GuestRoute = lazy(() => import("./GuestRoute"));
 
 // Fallback simple
-const loader =  <Loader />;
+const loader = <Loader />;
 
 const router = createBrowserRouter([
     {
@@ -72,7 +74,17 @@ const router = createBrowserRouter([
     },
     {
         path: "/admin",
-        element: <Suspense fallback={loader}><Admin /></Suspense>
+        element: <Suspense fallback={loader}><Admin /></Suspense>,
+        children: [
+            {
+                index: true,
+                element: <Suspense fallback={loader}><Dashboard /></Suspense>
+            },
+            {
+                path: "cottage",
+                element: <Suspense fallback={loader}><TableCottage /></Suspense>
+            },
+        ]
     }
 ]);
 

@@ -13,7 +13,7 @@ import { UserContext } from "../../context/UserContext";
 function Home() {
     const { data, loading, error } = useFetch("home");
     const { userData, setUserData } = useContext(UserContext)
-
+    console.log(userData)
     useEffect(() => {
         const params = new URLSearchParams(window.location.search);
         const token = params.get("token");
@@ -37,7 +37,7 @@ function Home() {
             {/* hero */}
             <HeroSlider />
             {/* Fin hero */}
-            {userData && (<div className="mx-auto container pt-7 px-7">
+            {userData?.reservations?.length > 1 && (<div className="mx-auto container pt-7 px-7">
                 <div className="flex justify-between ">
                     <h1 className='md:text-3xl text-2xl font-bold capitalize flex justify-end mb-10'>Tus ultimas reservas:</h1>
                     <button
@@ -51,21 +51,26 @@ function Home() {
                         Ver +
                     </button>
                 </div>
-                <div className="flex justify-end ">
-                    <div className="card bg-base-100 w-96 shadow-sm">
-                        <figure>
-                            <img
-                                src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                                alt="Shoes" />
-                        </figure>
-                        <div className="card-body">
-                            <h2 className="card-title">Card Title</h2>
-                            <p>A card component has a figure, a body part, and inside body there are title and actions parts</p>
-                            <div className="card-actions justify-end">
-                                <button className="btn btn-primary">Buy Now</button>
+                <div className="flex justify-end gap-x-5">
+                    {userData.reservations.map((reservation, index) => (
+                        <div
+                            key={index}
+                            className="card bg-base-100 2xl:w-96 w-56 shadow-sm border"
+                        >
+                            <figure>
+                                <img
+                                    src="portada.webp"
+                                    alt={`Imagen de reserva ${index + 1}`}
+                                />
+                            </figure>
+                            <div className="card-body">
+                                <h2 className="card-title">Reserva #{index + 1}</h2>
+                                <p><strong>Inicio:</strong> {new Date(reservation.date_start).toLocaleDateString()}</p>
+                                <p><strong>Fin:</strong> {new Date(reservation.date_end).toLocaleDateString()}</p>
+                                <p><strong>Total:</strong> S/. {reservation.total_price}</p>
                             </div>
                         </div>
-                    </div>
+                    ))}
                 </div>
             </div>)}
 
