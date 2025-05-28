@@ -6,6 +6,7 @@ import PeopleSelector from "../atoms/PeopleSelector";
 import { useLocation } from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import TestimonialsSection from "../organisms/TestimonialsSection";
+import LoadingSearchCottage from "../organisms/loading/LoadingSearchCottage";
 
 
 const SearcCottage = () => {
@@ -57,6 +58,7 @@ const SearcCottage = () => {
             }
         }
     }, [data]);
+
     useEffect(() => {
         if (paqueteSeleccionado) {
             const cabañasAsociadas =
@@ -72,6 +74,7 @@ const SearcCottage = () => {
             setCottagesFiltradas(filtradas);
         }
     }, [paqueteSeleccionado]);
+
     const ClientsRecomend = [
         {
             name: "Tania Andrew",
@@ -117,8 +120,18 @@ const SearcCottage = () => {
         }
     ];
 
+    if (loading) {
+        return (
+          <LoadingSearchCottage />
+        );
+    }
+
+    if (error) return <div>Error al cargar los paquetes.</div>;
+
+    if (!data || data.length === 0) return <div>No hay paquetes disponibles.</div>;
     return (
         <>
+
             <div className="py-10 space-y-4 container mx-auto">
                 {mensaje && (
                     <h2 className="container mx-auto text-xl font-semibold mb-4 text-start">

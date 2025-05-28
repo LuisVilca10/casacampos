@@ -8,6 +8,7 @@ import MyProfile from "../components/pages/admin/MyProfile";
 import TableUsers from "../components/pages/admin/Tables/TableUsers";
 import TablePackages from "../components/pages/admin/Tables/TablePackages";
 import TableReservations from "../components/pages/admin/Tables/TableReservations";
+import TableSuportHelps from "../components/pages/admin/Tables/TableSuportHelps";
 
 // Lazy load de componentes
 const App = lazy(() => import("../components/templates/App"));
@@ -104,6 +105,10 @@ const router = createBrowserRouter([
             {
                 path: "reservations",
                 element: <Suspense fallback={loader}><TableReservations /></Suspense>
+            },
+            {
+                path: "suport-helps",
+                element: <Suspense fallback={loader}><TableSuportHelps /></Suspense>
             },
         ]
     }
