@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { LayoutDashboard, Calendar, User, BarChart2, House, UsersRound, PackageOpen, MessageCircle } from "lucide-react";
 
 function Sidebar() {
@@ -9,19 +9,19 @@ function Sidebar() {
                 {/* Sidebar content here */}
 
                 <div className="flex gap-2 sm:gap-4 items-center justify-center mb-4">
-                    <Link to={"/"}>
+                    <NavLink to={"/"}>
                         <img
                             className="h-auto w-14 sm:w-28"
                             src="/logo.png"
                             alt=""
                         />
-                    </Link>
+                    </NavLink>
                     <div className="cursor-pointer pt-1">
-                        <Link to={"/"}>
+                        <NavLink to={"/"}>
                             <h1 className="text-base sm:text-lg font-bold text-red-700">
                                 Casa Campo
                             </h1>
-                        </Link>
+                        </NavLink>
                         <div className="text-xs sm:text-sm font-semibold -mt-1">
                             Arequipa
                         </div>
@@ -34,70 +34,86 @@ function Sidebar() {
                 <div className="mb-4">
                     <div className="text-xs font-semibold text-gray-500 uppercase mb-2">Menu</div>
                     <li>
-                        <Link to="/admin">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/admin" end  >
                             <LayoutDashboard className="w-4 h-4 mr-2" />
                             Dashboard
-                        </Link>
+                        </NavLink>
                     </li>
                 </div>
 
                 <div className="mb-4">
                     <div className="text-xs font-semibold text-gray-500 uppercase mb-2">Autentificación</div>
                     <li>
-                        <Link to="/admin/profile">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/admin/profile">
                             <User className="w-4 h-4 mr-2" />
                             Mi Perfil
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/admin/users">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/admin/users">
 
                             <UsersRound className="w-4 h-4 mr-2" />
                             Usuarios
-                        </Link>
+                        </NavLink>
                     </li>
                 </div>
 
                 <div className="mb-4">
                     <div className="text-xs font-semibold text-gray-500 uppercase mb-2">Sistema</div>
                     <li>
-                        <Link to="/admin/cottage">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/admin/cottage">
                             <House className="w-4 h-4 mr-2" />
                             Cabañas
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/admin/packages">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/admin/packages">
                             <PackageOpen className="w-4 h-4 mr-2" />
                             Paquetes
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/admin/reservations">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/admin/reservations">
                             <Calendar className="w-4 h-4 mr-2" />
                             Reservas
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/admin/suport-helps">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/admin/suport-helps">
                             <MessageCircle className="w-4 h-4 mr-2" />
                             Centro de ayuda
-                        </Link>
+                        </NavLink>
                     </li>
                 </div>
 
                 <div className="mb-4">
                     <div className="text-xs font-semibold text-gray-500 uppercase mb-2">Others</div>
                     <li>
-                        <Link to="/charts">
+                        <NavLink className={({ isActive }) =>
+                            isActive ? 'bg-red-700/20 text-red-600 font-medium' : 'text-sm hover:bg-gray-200'
+                        } to="/charts">
                             <BarChart2 className="w-4 h-4 mr-2" />
                             Charts
-                        </Link>
+                        </NavLink>
                     </li>
                 </div>
             </ul>
-        
-    </>
-);
+
+        </>
+    );
 }
 export default Sidebar;
