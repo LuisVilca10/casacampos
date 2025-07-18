@@ -1,5 +1,11 @@
+import { Pencil, Trash } from "lucide-react";
+import useFetch from "../../../../hooks/useFetch";
+
 function TablePackages() {
-    const data = {
+
+    const { data, loading, error } = useFetch("packages-admin");
+    console.log(data);
+    const data1 = {
         reservations: [
             {
                 id: 1,
@@ -53,13 +59,13 @@ function TablePackages() {
             <div className="flex justify-between items-center mb-4">
                 <input
                     type="text"
-                    placeholder="Buscar Cabaña"
+                    placeholder="Buscar Paquete"
                     className="p-2 border border-gray-300 rounded-lg w-1/3 "
                     value=""
                 // onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <button onClick={() => handelneed()} className=" text-black p-2 rounded border border-black hover:bg-green-800 hover:text-white">
-                    Nueva Reserva
+                <button className=" text-black p-2 rounded border border-black hover:bg-green-800 hover:text-white" onClick={() => setOpenModal(true)}>
+                    Nuevo Paquete
                 </button>
             </div>
 
@@ -67,67 +73,45 @@ function TablePackages() {
                 <table className="w-full text-left table-auto min-w-max text-sm">
                     <thead className="bg-gray-200">
                         <tr>
-                            <th className="p-3 font-normal">Id Reserva</th>
+                            <th className="p-3 font-normal">Id</th>
+                            <th className="p-3 font-normal">Imagen</th>
                             <th className="p-3 font-normal">Nombre Paquete</th>
-                            <th className="p-3 font-normal">Cabaña reservada</th>
-                            <th className="p-3 font-normal">Fecha de Reservación</th>
-                            <th className="p-3 font-normal">Estado</th>
-                            <th className="p-3 font-normal">Check in</th>
-                            <th className="p-3 font-normal">Chek out</th>
-                            <th className="p-3 font-normal">Cantidad de personas</th>
-                            <th className="p-3 font-normal">Precio total</th>
+                            <th className="p-3 font-normal">Capacidad</th>
+                            <th className="p-3 font-normal">Precio de L- J</th>
+                            <th className="p-3 font-normal">Precio de V - D</th>
+                            <th className="p-3 font-normal">Precio de Garantia</th>
+                            <th className="p-3 font-normal">Precio de Limpieza</th>
                             <th className="p-3 font-normal">Acciones</th>
                         </tr>
                     </thead>
                     <tbody className="divide-y">
-                        {data?.reservations?.map((cottage, index) => (
-                            <tr key={cottage.id} className="hover:bg-gray-100">
-                                <td className="p-3 whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                    {cottage.id}
+                        {data?.packeges.map((packege, index) => (
+                            <tr key={index} className="hover:bg-gray-100">
+                                <td className="p-3 whitespace-nowrap font-medium text-gray-900">
+                                    {packege.id}
                                 </td>
-                                <td className="p-3 whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                                    {cottage?.package?.name}
+                                <td className="p-3">  <img src={packege.img} alt={packege.name} className="object-cover w-24 h-24 rounded-lg border" />
                                 </td>
-                                <td className="p-3">{cottage.cottages?.length > 0 ? (
-                                    <ul className="list-disc list-inside">
-                                        {cottage.cottages.map(cottage => (
-                                            <li key={cottage?.id}>{cottage?.name_cottage}</li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <span>No hay cabañas asociadas</span>
-                                )}</td>
-                                <td className="p-3">
-                                    {new Date(cottage?.date_reservation).toISOString().split('T')[0]}
-                                </td>
-                                <td className="p-3">
-                                    <span style={{ color: cottage?.state === 1 ? 'green' : 'red' }}>
-                                        {cottage?.state === 1 ? 'Pagado' : 'Falta pagar'}
-                                    </span>
-
-                                </td>
-                                <td className="p-3">
-                                    {new Date(cottage?.date_start).toISOString().split('T')[0]}
-                                </td>
-                                <td className="p-3">
-                                    {new Date(cottage?.date_end).toISOString().split('T')[0]}
-                                </td>
-                                <td className="p-3">{cottage?.package?.max_person}</td>
-                                <td className="p-3">{cottage?.total_price}</td>
+                                <td className="p-3">{packege.name}</td>
+                                <td className="p-3">{packege.max_person} Personas</td>
+                                <td className="p-3">{packege.price_monday_to_thursday} </td>
+                                <td className="p-3">{packege.price_friday_to_sunday}</td>
+                                <td className="p-3">{packege.guarantee}</td>
+                                <td className="p-3">{packege.cleaning}</td>
                                 <td className="p-2">
                                     <div className="flex gap-2">
-                                        <button className="px-3 py-2 rounded-lg text-white bg-green-500 hover:bg-green-700" onClick={() => handleEditClick(cottage)}>
-                                            <i className="fa-solid fa-pen "></i>
+                                        <button className="p-2 rounded-lg text-white bg-green-500 hover:bg-green-700" onClick={() => handleEditClick(packege)}>
+                                            <Pencil size={17} />
                                         </button>
-                                        <button className="px-3 py-2 rounded-lg text-white bg-red-500 hover:bg-red-700" onClick={() => handledeleteClick(cottage.id)}>
-                                            <i className="fa-solid fa-trash "></i>
+                                        <button className="p-2 rounded-lg text-white bg-red-500 hover:bg-red-700" onClick={() => handledeleteClick(packege.id)}>
+                                            <Trash size={17} />
                                         </button>
                                     </div>
                                 </td>
                             </tr>
                         ))}
-
                     </tbody>
+
                 </table>
             </div>
 
